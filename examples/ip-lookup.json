@@ -1,0 +1,32 @@
+{
+  "title": "IP Address Time Lookup Example",
+  "description": "Request the current time based on a specific IPv4 address.",
+  "request": {
+    "method": "GET",
+    "url": "https://public.timeapi.world/api/ip/1.1.1.1",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "abbreviation": "AEST",
+      "datetime": "2025-09-12T22:24:30.887+10:00",
+      "day_of_week": 5,
+      "day_of_year": 255,
+      "dst": false,
+      "dst_from": null,
+      "dst_offset": 0,
+      "dst_until": null,
+      "raw_offset": 36000,
+      "timezone": "Australia/Sydney",
+      "unixtime": 1757679870,
+      "utc_datetime": "2025-09-12T12:24:30.887+00:00",
+      "utc_offset": "+10:00",
+      "week_number": 37,
+      "client_ip": "127.0.0.1"
+    }
+  }
+}

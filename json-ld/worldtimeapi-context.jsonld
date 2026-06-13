@@ -1,0 +1,134 @@
+{
+  "@context": {
+    "@vocab": "https://timeapi.world/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "WorldTimeAPI": "https://timeapi.world/",
+    "DateTimeResponse": "https://timeapi.world/vocab/DateTimeResponse",
+    "GeoResponse": "https://timeapi.world/vocab/GeoResponse",
+
+    "abbreviation": {
+      "@id": "https://timeapi.world/vocab/abbreviation",
+      "@type": "xsd:string"
+    },
+    "datetime": {
+      "@id": "schema:DateTime",
+      "@type": "xsd:dateTime"
+    },
+    "day_of_week": {
+      "@id": "schema:dayOfWeek",
+      "@type": "xsd:integer"
+    },
+    "day_of_year": {
+      "@id": "https://timeapi.world/vocab/dayOfYear",
+      "@type": "xsd:integer"
+    },
+    "dst": {
+      "@id": "https://timeapi.world/vocab/daylightSavingTime",
+      "@type": "xsd:boolean"
+    },
+    "dst_from": {
+      "@id": "https://timeapi.world/vocab/dstFrom",
+      "@type": "xsd:dateTime"
+    },
+    "dst_offset": {
+      "@id": "https://timeapi.world/vocab/dstOffset",
+      "@type": "xsd:integer"
+    },
+    "dst_until": {
+      "@id": "https://timeapi.world/vocab/dstUntil",
+      "@type": "xsd:dateTime"
+    },
+    "raw_offset": {
+      "@id": "https://timeapi.world/vocab/rawOffset",
+      "@type": "xsd:integer"
+    },
+    "timezone": {
+      "@id": "schema:timezone",
+      "@type": "xsd:string"
+    },
+    "unixtime": {
+      "@id": "https://timeapi.world/vocab/unixtime",
+      "@type": "xsd:integer"
+    },
+    "utc_datetime": {
+      "@id": "https://timeapi.world/vocab/utcDatetime",
+      "@type": "xsd:dateTime"
+    },
+    "utc_offset": {
+      "@id": "https://timeapi.world/vocab/utcOffset",
+      "@type": "xsd:string"
+    },
+    "week_number": {
+      "@id": "https://timeapi.world/vocab/weekNumber",
+      "@type": "xsd:integer"
+    },
+    "client_ip": {
+      "@id": "https://timeapi.world/vocab/clientIp",
+      "@type": "xsd:string"
+    },
+
+    "ip": {
+      "@id": "schema:ipAddressOrRange",
+      "@type": "xsd:string"
+    },
+    "latitude": {
+      "@id": "schema:latitude",
+      "@type": "xsd:decimal"
+    },
+    "longitude": {
+      "@id": "schema:longitude",
+      "@type": "xsd:decimal"
+    },
+    "accuracy_radius": {
+      "@id": "https://timeapi.world/vocab/accuracyRadius",
+      "@type": "xsd:integer"
+    },
+    "city": {
+      "@id": "schema:addressLocality",
+      "@type": "xsd:string"
+    },
+    "postal_code": {
+      "@id": "schema:postalCode",
+      "@type": "xsd:string"
+    },
+    "metro_code": {
+      "@id": "https://timeapi.world/vocab/metroCode",
+      "@type": "xsd:integer"
+    },
+    "subdivisions": {
+      "@id": "schema:containedInPlace"
+    },
+    "country": {
+      "@id": "schema:Country"
+    },
+    "continent": {
+      "@id": "schema:Continent"
+    },
+    "code": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "is_in_european_union": {
+      "@id": "https://timeapi.world/vocab/isInEuropeanUnion",
+      "@type": "xsd:boolean"
+    },
+    "is_anonymous_proxy": {
+      "@id": "https://timeapi.world/vocab/isAnonymousProxy",
+      "@type": "xsd:boolean"
+    },
+    "is_satellite_provider": {
+      "@id": "https://timeapi.world/vocab/isSatelliteProvider",
+      "@type": "xsd:boolean"
+    },
+    "is_anycast": {
+      "@id": "https://timeapi.world/vocab/isAnycast",
+      "@type": "xsd:boolean"
+    }
+  }
+}

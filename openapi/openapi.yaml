@@ -1,0 +1,1085 @@
+openapi: "3.0.1"
+info:
+  title: "World Time API"
+  version: "2025-10-01"
+  description: >-
+    API to get the current local time details for a given timezone or IP address
+
+servers:
+  - url: https://public.timeapi.world/api/
+
+paths:
+  /timezone:
+    get:
+      summary: a listing of all timezones.
+      responses:
+        default:
+          $ref: "#/components/responses/SuccessfulListJsonResponse"
+  /timezone.txt:
+    get:
+      summary: a listing of all timezones.
+      responses:
+        default:
+          $ref: "#/components/responses/SuccessfulListTextResponse"
+
+  /timezone/{area}:
+    get:
+      summary: a listing of all timezones available for that area.
+      parameters:
+        - name: area
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Africa"
+      responses:
+        "200":
+          description: >-
+            the list of available timezones in JSON format for the specified area
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListJsonResponse"
+              example:
+                - "Africa/Abidjan"
+                - "Africa/Accra"
+                - "Africa/Addis_Ababa"
+                - "Africa/Algiers"
+                - "Africa/Asmara"
+        default:
+          $ref: "#/components/responses/ErrorJsonResponse"
+  /timezone/{area}.txt:
+    get:
+      summary: a listing of all timezones available for that area.
+      parameters:
+        - name: area
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Africa"
+      responses:
+        "200":
+          description: >-
+            the list of available timezones in plain text for the specified area
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ListTextResponse"
+              example: |
+                Africa/Abidjan
+                Africa/Accra
+                Africa/Addis_Ababa
+                Africa/Algiers
+                Africa/Asmara
+        default:
+          $ref: "#/components/responses/ErrorTextResponse"
+
+  /timezone/{area}/{location}:
+    get:
+      summary: request the current time for a timezone.
+      parameters:
+        - name: area
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Africa"
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Abidjan"
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone requested in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DateTimeJsonResponse"
+              example:
+                abbreviation: "GMT"
+                datetime: "2025-09-12T12:18:29.438+00:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from: null
+                dst_offset: 0
+                dst_until: null
+                raw_offset: 0
+                timezone: "Africa/Abidjan"
+                unixtime: 1757679509
+                utc_datetime: "2025-09-12T12:18:29.438+00:00"
+                utc_offset: "+00:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+        default:
+          $ref: "#/components/responses/ErrorJsonResponse"
+  /timezone/{area}/{location}.txt:
+    get:
+      summary: request the current time for a timezone.
+      parameters:
+        - name: area
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Africa"
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Abidjan"
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone requested in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DateTimeTextResponse"
+              example: |
+                abbreviation: GMT
+                datetime: 2025-09-12T12:18:29.438+00:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from:
+                dst_offset: 0
+                dst_until:
+                raw_offset: 0
+                timezone: Africa/Abidjan
+                unixtime: 1757679509
+                utc_datetime: 2025-09-12T12:18:29.438+00:00
+                utc_offset: +00:00
+                week_number: 37
+                client_ip: 127.0.0.1
+        default:
+          $ref: "#/components/responses/ErrorTextResponse"
+
+  /timezone/{area}/{location}/{region}:
+    get:
+      summary: request the current time for a timezone.
+      parameters:
+        - name: area
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "America"
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Argentina"
+        - name: region
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Buenos_Aires"
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone requested in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DateTimeJsonResponse"
+              example:
+                abbreviation: "-03"
+                datetime: "2025-09-12T09:30:07.347-03:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from: null
+                dst_offset: 0
+                dst_until: null
+                raw_offset: -10800
+                timezone: "America/Argentina/Buenos_Aires"
+                unixtime: 1757680207
+                utc_datetime: "2025-09-12T12:30:07.347+00:00"
+                utc_offset: "-03:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+        default:
+          $ref: "#/components/responses/ErrorJsonResponse"
+  /timezone/{area}/{location}/{region}.txt:
+    get:
+      summary: request the current time for a timezone.
+      parameters:
+        - name: area
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "America"
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Argentina"
+        - name: region
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Buenos_Aires"
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone requested in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DateTimeTextResponse"
+              example: |
+                abbreviation: -03
+                datetime: 2025-09-12T09:30:07.347-03:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from:
+                dst_offset: 0
+                dst_until:
+                raw_offset: -10800
+                timezone: America/Argentina/Buenos_Aires
+                unixtime: 1757680207
+                utc_datetime: 2025-09-12T12:30:07.347+00:00
+                utc_offset: -03:00
+                week_number: 37
+                client_ip: 127.0.0.1
+        default:
+          $ref: "#/components/responses/ErrorTextResponse"
+
+  /ip:
+    get:
+      summary: >-
+        request the current time based on the ip of the request.
+        note: this is a "best guess" obtained from open-source data.
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone determined from client IP in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DateTimeJsonResponse"
+              example:
+                abbreviation: "BST"
+                datetime: "2025-09-12T14:28:04.754+01:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: true
+                dst_from: "2025-03-30T01:00:00+00:00"
+                dst_offset: 3600
+                dst_until: "2025-10-26T01:00:00+00:00"
+                raw_offset: 0
+                timezone: "Europe/London"
+                unixtime: 1757683684
+                utc_datetime: "2025-09-12T13:28:04.754+00:00"
+                utc_offset: "+01:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+        default:
+          $ref: "#/components/responses/ErrorJsonResponse"
+  /ip.txt:
+    get:
+      summary: >-
+        request the current time based on the ip of the request.
+        note: this is a "best guess" obtained from open-source data.
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone determined from client IP in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DateTimeTextResponse"
+              example: |
+                abbreviation: BST
+                datetime: 2025-09-12T14:28:04.754+01:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: true
+                dst_from: 2025-03-30T01:00:00+00:00
+                dst_offset: 3600
+                dst_until: 2025-10-26T01:00:00+00:00
+                raw_offset: 0
+                timezone: Europe/London
+                unixtime: 1757683684
+                utc_datetime: 2025-09-12T13:28:04.754+00:00
+                utc_offset: +01:00
+                week_number: 37
+                client_ip: 127.0.0.1
+        default:
+          $ref: "#/components/responses/ErrorTextResponse"
+
+  /ip/{ip}:
+    get:
+      summary: >-
+        request the current time based on a specific IPv4 or IPv6 address.
+        note: this is a "best guess" obtained from open-source data.
+      parameters:
+        - name: ip
+          in: path
+          required: true
+          description: IPv4 or IPv6 address
+          schema:
+            type: string
+          examples:
+            ipv4:
+              value: "1.1.1.1"
+              summary: IPv4 address
+            ipv6:
+              value: "2606:4700:4700::1111"
+              summary: IPv6 address (Cloudflare DNS)
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone determined from the specified IP in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DateTimeJsonResponse"
+              example:
+                abbreviation: "AEST"
+                datetime: "2025-09-12T22:24:30.887+10:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from: null
+                dst_offset: 0
+                dst_until: null
+                raw_offset: 36000
+                timezone: "Australia/Sydney"
+                unixtime: 1757679870
+                utc_datetime: "2025-09-12T12:24:30.887+00:00"
+                utc_offset: "+10:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+        default:
+          $ref: "#/components/responses/ErrorJsonResponse"
+
+  /ip/{ip}.txt:
+    get:
+      summary: >-
+        request the current time based on a specific IPv4 or IPv6 address.
+        note: this is a "best guess" obtained from open-source data.
+      parameters:
+        - name: ip
+          in: path
+          required: true
+          description: IPv4 or IPv6 address
+          schema:
+            type: string
+          examples:
+            ipv4:
+              value: "1.1.1.1"
+              summary: IPv4 address
+            ipv6:
+              value: "2606:4700:4700::1111"
+              summary: IPv6 address (Cloudflare DNS)
+      responses:
+        "200":
+          description: >-
+            the current time for the timezone determined from the specified IP in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DateTimeTextResponse"
+              example: |
+                abbreviation: AEST
+                datetime: 2025-09-12T22:24:30.887+10:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from:
+                dst_offset: 0
+                dst_until:
+                raw_offset: 36000
+                timezone: Australia/Sydney
+                unixtime: 1757679870
+                utc_datetime: 2025-09-12T12:24:30.887+00:00
+                utc_offset: +10:00
+                week_number: 37
+                client_ip: 127.0.0.1
+        default:
+          $ref: "#/components/responses/ErrorTextResponse"
+
+  /geo:
+    get:
+      summary: >-
+        request geolocation data based on the ip of the request.
+        note: this is a "best guess" obtained from open-source data.
+      responses:
+        "200":
+          description: >-
+            geolocation data for the client IP in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeoJsonResponse"
+              example:
+                ip: "1.1.1.1"
+                latitude: -33.8591
+                longitude: 151.2002
+                accuracy_radius: 1000
+                timezone: "Australia/Sydney"
+                city: "Sydney"
+                postal_code: "2000"
+                metro_code: null
+                subdivisions:
+                  - code: "NSW"
+                    name: "New South Wales"
+                country:
+                  code: "AU"
+                  name: "Australia"
+                continent:
+                  code: "OC"
+                  name: "Oceania"
+                is_in_european_union: false
+                is_anonymous_proxy: false
+                is_satellite_provider: false
+                is_anycast: false
+        default:
+          $ref: "#/components/responses/ErrorJsonResponse"
+  /geo.txt:
+    get:
+      summary: >-
+        request geolocation data based on the ip of the request.
+        note: this is a "best guess" obtained from open-source data.
+      responses:
+        "200":
+          description: >-
+            geolocation data for the client IP in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/GeoTextResponse"
+              example: |
+                ip: 1.1.1.1
+                latitude: -33.8591
+                longitude: 151.2002
+                accuracy_radius: 1000
+                timezone: Australia/Sydney
+                city: Sydney
+                postal_code: 2000
+                subdivisions: NSW (New South Wales)
+                country_code: AU
+                country_name: Australia
+                continent_code: OC
+                continent_name: Oceania
+                is_in_european_union: false
+                is_anonymous_proxy: false
+                is_satellite_provider: false
+                is_anycast: false
+        default:
+          $ref: "#/components/responses/ErrorTextResponse"
+
+  /geo/{ip}:
+    get:
+      summary: >-
+        request geolocation data for a specific IPv4 or IPv6 address.
+        note: this is a "best guess" obtained from open-source data.
+      parameters:
+        - name: ip
+          in: path
+          required: true
+          description: IPv4 or IPv6 address
+          schema:
+            type: string
+          examples:
+            ipv4:
+              value: "1.1.1.1"
+              summary: IPv4 address
+            ipv6:
+              value: "2606:4700:4700::1111"
+              summary: IPv6 address (Cloudflare DNS)
+      responses:
+        "200":
+          description: >-
+            geolocation data for the specified IP in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeoJsonResponse"
+              example:
+                ip: "1.1.1.1"
+                latitude: -33.8591
+                longitude: 151.2002
+                accuracy_radius: 1000
+                timezone: "Australia/Sydney"
+                city: "Sydney"
+                postal_code: "2000"
+                metro_code: null
+                subdivisions:
+                  - code: "NSW"
+                    name: "New South Wales"
+                country:
+                  code: "AU"
+                  name: "Australia"
+                continent:
+                  code: "OC"
+                  name: "Oceania"
+                is_in_european_union: false
+                is_anonymous_proxy: false
+                is_satellite_provider: false
+                is_anycast: false
+        default:
+          $ref: "#/components/responses/ErrorJsonResponse"
+  /geo/{ip}.txt:
+    get:
+      summary: >-
+        request geolocation data for a specific IPv4 or IPv6 address.
+        note: this is a "best guess" obtained from open-source data.
+      parameters:
+        - name: ip
+          in: path
+          required: true
+          description: IPv4 or IPv6 address
+          schema:
+            type: string
+          examples:
+            ipv4:
+              value: "1.1.1.1"
+              summary: IPv4 address
+            ipv6:
+              value: "2606:4700:4700::1111"
+              summary: IPv6 address (Cloudflare DNS)
+      responses:
+        "200":
+          description: >-
+            geolocation data for the specified IP in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/GeoTextResponse"
+              example: |
+                ip: 1.1.1.1
+                latitude: -33.8591
+                longitude: 151.2002
+                accuracy_radius: 1000
+                timezone: Australia/Sydney
+                city: Sydney
+                postal_code: 2000
+                subdivisions: NSW (New South Wales)
+                country_code: AU
+                country_name: Australia
+                continent_code: OC
+                continent_name: Oceania
+                is_in_european_union: false
+                is_anonymous_proxy: false
+                is_satellite_provider: false
+                is_anycast: false
+        default:
+          $ref: "#/components/responses/ErrorTextResponse"
+
+components:
+  responses:
+    SuccessfulListJsonResponse:
+      description: >-
+        the list of available timezones in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ListJsonResponse"
+          example:
+            - "Africa/Abidjan"
+            - "Africa/Accra"
+            - "Africa/Addis_Ababa"
+            - "Africa/Algiers"
+            - "Africa/Asmara"
+            - "Africa/Asmera"
+            - "Africa/Bamako"
+    SuccessfulListTextResponse:
+      description: >-
+        the list of available timezones in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: "#/components/schemas/ListTextResponse"
+          example: |
+            Africa/Abidjan
+            Africa/Accra
+            Africa/Addis_Ababa
+            Africa/Algiers
+            Africa/Asmara
+            Africa/Asmera
+            Africa/Bamako
+
+    SuccessfulDateTimeJsonResponse:
+      description: >-
+        the current time for the timezone requested in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/DateTimeJsonResponse"
+          examples:
+            timezone_two_parts:
+              summary: "Timezone with area/location (e.g., Africa/Abidjan)"
+              value:
+                abbreviation: "GMT"
+                datetime: "2025-09-12T12:18:29.438+00:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from: null
+                dst_offset: 0
+                dst_until: null
+                raw_offset: 0
+                timezone: "Africa/Abidjan"
+                unixtime: 1757679509
+                utc_datetime: "2025-09-12T12:18:29.438+00:00"
+                utc_offset: "+00:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+            timezone_three_parts:
+              summary: "Timezone with area/location/region (e.g., America/Argentina/Buenos_Aires)"
+              value:
+                abbreviation: "-03"
+                datetime: "2025-09-12T09:30:07.347-03:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from: null
+                dst_offset: 0
+                dst_until: null
+                raw_offset: -10800
+                timezone: "America/Argentina/Buenos_Aires"
+                unixtime: 1757680207
+                utc_datetime: "2025-09-12T12:30:07.347+00:00"
+                utc_offset: "-03:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+            ip_lookup:
+              summary: "IP-based time lookup"
+              value:
+                abbreviation: "BST"
+                datetime: "2025-09-12T14:28:04.754+01:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: true
+                dst_from: "2025-03-30T01:00:00+00:00"
+                dst_offset: 3600
+                dst_until: "2025-10-26T01:00:00+00:00"
+                raw_offset: 0
+                timezone: "Europe/London"
+                unixtime: 1757683684
+                utc_datetime: "2025-09-12T13:28:04.754+00:00"
+                utc_offset: "+01:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+            ip_lookup_specific:
+              summary: "Specific IP address lookup (e.g., 1.1.1.1)"
+              value:
+                abbreviation: "AEST"
+                datetime: "2025-09-12T22:24:30.887+10:00"
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from: null
+                dst_offset: 0
+                dst_until: null
+                raw_offset: 36000
+                timezone: "Australia/Sydney"
+                unixtime: 1757679870
+                utc_datetime: "2025-09-12T12:24:30.887+00:00"
+                utc_offset: "+10:00"
+                week_number: 37
+                client_ip: "127.0.0.1"
+            dst_not_active:
+              summary: "DST not active - shows when DST will begin (future) and last ended (past)"
+              value:
+                abbreviation: "AEST"
+                datetime: "2025-10-01T10:58:52.533+10:00"
+                day_of_week: 3
+                day_of_year: 274
+                dst: false
+                dst_from: "2025-10-04T16:00:00+00:00"
+                dst_offset: 0
+                dst_until: "2025-04-05T16:00:00+00:00"
+                raw_offset: 36000
+                timezone: "Australia/Sydney"
+                unixtime: 1759280332
+                utc_datetime: "2025-10-01T00:58:52.533+00:00"
+                utc_offset: "+10:00"
+                week_number: 40
+                client_ip: "127.0.0.1"
+            dst_active:
+              summary: "DST active - shows when DST started (past) and will end (future)"
+              value:
+                abbreviation: "CDT"
+                datetime: "2025-07-31T11:05:04.562-05:00"
+                day_of_week: 4
+                day_of_year: 212
+                dst: true
+                dst_from: "2025-03-09T08:00:00+00:00"
+                dst_offset: 3600
+                dst_until: "2025-11-02T07:00:00+00:00"
+                raw_offset: -21600
+                timezone: "America/Chicago"
+                unixtime: 1753977904
+                utc_datetime: "2025-07-31T16:05:04.562+00:00"
+                utc_offset: "-05:00"
+                week_number: 31
+                client_ip: "127.0.0.1"
+    SuccessfulDateTimeTextResponse:
+      description: >-
+        the current time for the timezone requested in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: "#/components/schemas/DateTimeTextResponse"
+          examples:
+            timezone_two_parts:
+              summary: "Timezone with area/location (e.g., Africa/Abidjan)"
+              value: |
+                abbreviation: GMT
+                datetime: 2025-09-12T12:18:29.438+00:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from:
+                dst_offset: 0
+                dst_until:
+                raw_offset: 0
+                timezone: Africa/Abidjan
+                unixtime: 1757679509
+                utc_datetime: 2025-09-12T12:18:29.438+00:00
+                utc_offset: +00:00
+                week_number: 37
+                client_ip: 127.0.0.1
+            timezone_three_parts:
+              summary: "Timezone with area/location/region (e.g., America/Argentina/Buenos_Aires)"
+              value: |
+                abbreviation: -03
+                datetime: 2025-09-12T09:30:07.347-03:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from:
+                dst_offset: 0
+                dst_until:
+                raw_offset: -10800
+                timezone: America/Argentina/Buenos_Aires
+                unixtime: 1757680207
+                utc_datetime: 2025-09-12T12:30:07.347+00:00
+                utc_offset: -03:00
+                week_number: 37
+                client_ip: 127.0.0.1
+            ip_lookup:
+              summary: "IP-based time lookup"
+              value: |
+                abbreviation: BST
+                datetime: 2025-09-12T14:28:04.754+01:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: true
+                dst_from: 2025-03-30T01:00:00+00:00
+                dst_offset: 3600
+                dst_until: 2025-10-26T01:00:00+00:00
+                raw_offset: 0
+                timezone: Europe/London
+                unixtime: 1757683684
+                utc_datetime: 2025-09-12T13:28:04.754+00:00
+                utc_offset: +01:00
+                week_number: 37
+                client_ip: 127.0.0.1
+            ip_lookup_specific:
+              summary: "Specific IP address lookup (e.g., 1.1.1.1)"
+              value: |
+                abbreviation: AEST
+                datetime: 2025-09-12T22:24:30.887+10:00
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from:
+                dst_offset: 0
+                dst_until:
+                raw_offset: 36000
+                timezone: Australia/Sydney
+                unixtime: 1757679870
+                utc_datetime: 2025-09-12T12:24:30.887+00:00
+                utc_offset: +10:00
+                week_number: 37
+                client_ip: 127.0.0.1
+
+    ErrorJsonResponse:
+      description: >-
+        an error response in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorJsonResponse"
+    ErrorTextResponse:
+      description: >-
+        an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: "#/components/schemas/ErrorTextResponse"
+
+  schemas:
+    ListJsonResponse:
+      type: array
+      description: >-
+        a list of available timezones
+      items:
+        type: string
+
+    ListTextResponse:
+      type: string
+      description: >-
+        a list of available timezones, one per line
+
+    DateTimeJsonResponse:
+      required:
+        - abbreviation
+        - client_ip
+        - datetime
+        - day_of_week
+        - day_of_year
+        - dst
+        - dst_offset
+        - timezone
+        - unixtime
+        - utc_datetime
+        - utc_offset
+        - week_number
+      properties:
+        abbreviation:
+          type: string
+          description: >-
+            the abbreviated name of the timezone
+        client_ip:
+          type: string
+          description: >-
+            the IP of the client making the request
+        datetime:
+          type: string
+          description: >-
+            an ISO8601-valid string representing
+            the current, local date/time
+        day_of_week:
+          type: integer
+          description: >-
+            current day number of the week, where sunday is 0
+        day_of_year:
+          type: integer
+          description: >-
+            ordinal date of the current year
+        dst:
+          type: boolean
+          description: >-
+            flag indicating whether the local
+            time is in daylight savings
+        dst_from:
+          type: string
+          nullable: true
+          description: >-
+            an ISO8601-valid string representing the datetime of a DST transition.
+            When DST is active (dst=true): shows when the current DST period started.
+            When DST is NOT active (dst=false): shows when the next DST period will begin (future date).
+            Returns null if the timezone does not observe DST.
+        dst_offset:
+          type: integer
+          description: >-
+            the difference in seconds between the current local
+            time and daylight saving time for the location
+        dst_until:
+          type: string
+          nullable: true
+          description: >-
+            an ISO8601-valid string representing the datetime of a DST transition.
+            When DST is active (dst=true): shows when the current DST period will end (future date).
+            When DST is NOT active (dst=false): shows when the last DST period ended (past date).
+            Returns null if the timezone does not observe DST.
+        raw_offset:
+          type: integer
+          description: >-
+            the difference in seconds between the current local time
+            and the time in UTC, excluding any daylight saving difference
+            (see dst_offset)
+        timezone:
+          type: string
+          description: >-
+            timezone in `Area/Location` or
+            `Area/Location/Region` format
+        unixtime:
+          type: integer
+          description: >-
+            number of seconds since the Epoch
+        utc_datetime:
+          type: string
+          description: >-
+            an ISO8601-valid string representing
+            the current date/time in UTC
+        utc_offset:
+          type: string
+          description: >-
+            an ISO8601-valid string representing
+            the offset from UTC
+        week_number:
+          type: integer
+          description: >-
+            the current week number
+
+    DateTimeTextResponse:
+      type: string
+      description: >-
+        time zone details, as per the DateTimeJsonResponse
+        response, in the format `key: value`, one item per line
+
+    ErrorJsonResponse:
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          description: >-
+            details about the error encountered
+
+    ErrorTextResponse:
+      type: string
+      description: >-
+        details about the error encountered in plain text
+
+    GeoSubdivision:
+      type: object
+      required:
+        - code
+        - name
+      properties:
+        code:
+          type: string
+          description: >-
+            ISO 3166-2 subdivision code
+        name:
+          type: string
+          description: >-
+            subdivision name
+
+    GeoJsonResponse:
+      type: object
+      required:
+        - ip
+        - latitude
+        - longitude
+        - accuracy_radius
+        - timezone
+        - city
+        - postal_code
+        - metro_code
+        - subdivisions
+        - country
+        - continent
+        - is_in_european_union
+        - is_anonymous_proxy
+        - is_satellite_provider
+        - is_anycast
+      properties:
+        ip:
+          type: string
+          description: >-
+            the IP address that was looked up
+        latitude:
+          type: number
+          nullable: true
+          description: >-
+            latitude coordinate
+        longitude:
+          type: number
+          nullable: true
+          description: >-
+            longitude coordinate
+        accuracy_radius:
+          type: integer
+          nullable: true
+          description: >-
+            accuracy radius in kilometers
+        timezone:
+          type: string
+          nullable: true
+          description: >-
+            timezone in `Area/Location` or `Area/Location/Region` format
+        city:
+          type: string
+          nullable: true
+          description: >-
+            city name
+        postal_code:
+          type: string
+          nullable: true
+          description: >-
+            postal code
+        metro_code:
+          type: integer
+          nullable: true
+          description: >-
+            metro code (US only)
+        subdivisions:
+          type: array
+          description: >-
+            list of subdivisions (e.g., states, provinces)
+          items:
+            $ref: "#/components/schemas/GeoSubdivision"
+        country:
+          type: object
+          required:
+            - code
+            - name
+          properties:
+            code:
+              type: string
+              nullable: true
+              description: >-
+                ISO 3166-1 alpha-2 country code
+            name:
+              type: string
+              nullable: true
+              description: >-
+                country name
+        continent:
+          type: object
+          required:
+            - code
+            - name
+          properties:
+            code:
+              type: string
+              nullable: true
+              description: >-
+                two-letter continent code
+            name:
+              type: string
+              nullable: true
+              description: >-
+                continent name
+        is_in_european_union:
+          type: boolean
+          description: >-
+            whether the location is in the European Union
+        is_anonymous_proxy:
+          type: boolean
+          description: >-
+            whether the IP belongs to an anonymous proxy (VPN, Tor, etc.)
+        is_satellite_provider:
+          type: boolean
+          description: >-
+            whether the IP belongs to a satellite internet provider
+        is_anycast:
+          type: boolean
+          description: >-
+            whether the IP is an anycast address
+
+    GeoTextResponse:
+      type: string
+      description: >-
+        geolocation details, as per the GeoJsonResponse
+        response, in the format `key: value`, one item per line

@@ -1,0 +1,43 @@
+{
+  "title": "IP Geolocation Lookup Example",
+  "description": "Request geolocation data for a specific IPv4 address via the /geo endpoint.",
+  "request": {
+    "method": "GET",
+    "url": "https://public.timeapi.world/api/geo/1.1.1.1",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "ip": "1.1.1.1",
+      "latitude": -33.8591,
+      "longitude": 151.2002,
+      "accuracy_radius": 1000,
+      "timezone": "Australia/Sydney",
+      "city": "Sydney",
+      "postal_code": "2000",
+      "metro_code": null,
+      "subdivisions": [
+        {
+          "code": "NSW",
+          "name": "New South Wales"
+        }
+      ],
+      "country": {
+        "code": "AU",
+        "name": "Australia"
+      },
+      "continent": {
+        "code": "OC",
+        "name": "Oceania"
+      },
+      "is_in_european_union": false,
+      "is_anonymous_proxy": false,
+      "is_satellite_provider": false,
+      "is_anycast": false
+    }
+  }
+}

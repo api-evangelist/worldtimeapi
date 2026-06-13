@@ -1,0 +1,32 @@
+{
+  "title": "Timezone Lookup Example",
+  "description": "Request the current time for a specific IANA timezone identifier.",
+  "request": {
+    "method": "GET",
+    "url": "https://public.timeapi.world/api/timezone/America/Chicago",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "abbreviation": "CDT",
+      "datetime": "2025-07-31T11:05:04.562-05:00",
+      "day_of_week": 4,
+      "day_of_year": 212,
+      "dst": true,
+      "dst_from": "2025-03-09T08:00:00+00:00",
+      "dst_offset": 3600,
+      "dst_until": "2025-11-02T07:00:00+00:00",
+      "raw_offset": -21600,
+      "timezone": "America/Chicago",
+      "unixtime": 1753977904,
+      "utc_datetime": "2025-07-31T16:05:04.562+00:00",
+      "utc_offset": "-05:00",
+      "week_number": 31,
+      "client_ip": "127.0.0.1"
+    }
+  }
+}

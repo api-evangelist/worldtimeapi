@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://timeapi.world/schemas/geo-response.json",
+  "title": "GeoJsonResponse",
+  "description": "Geolocation data returned by the /geo endpoint for a given IP address.",
+  "type": "object",
+  "required": [
+    "ip",
+    "latitude",
+    "longitude",
+    "accuracy_radius",
+    "timezone",
+    "city",
+    "postal_code",
+    "metro_code",
+    "subdivisions",
+    "country",
+    "continent",
+    "is_in_european_union",
+    "is_anonymous_proxy",
+    "is_satellite_provider",
+    "is_anycast"
+  ],
+  "properties": {
+    "ip": {
+      "type": "string",
+      "description": "The IPv4 or IPv6 address that was looked up."
+    },
+    "latitude": {
+      "type": ["number", "null"],
+      "description": "Latitude coordinate of the IP location."
+    },
+    "longitude": {
+      "type": ["number", "null"],
+      "description": "Longitude coordinate of the IP location."
+    },
+    "accuracy_radius": {
+      "type": ["integer", "null"],
+      "description": "Accuracy radius in kilometers for the geolocation estimate."
+    },
+    "timezone": {
+      "type": ["string", "null"],
+      "description": "IANA timezone identifier in Area/Location or Area/Location/Region format."
+    },
+    "city": {
+      "type": ["string", "null"],
+      "description": "City name associated with the IP address."
+    },
+    "postal_code": {
+      "type": ["string", "null"],
+      "description": "Postal or ZIP code for the IP location."
+    },
+    "metro_code": {
+      "type": ["integer", "null"],
+      "description": "Metro code identifier (US only)."
+    },
+    "subdivisions": {
+      "type": "array",
+      "description": "List of administrative subdivisions (e.g., states, provinces) for the IP location.",
+      "items": {
+        "type": "object",
+        "required": ["code", "name"],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "ISO 3166-2 subdivision code."
+          },
+          "name": {
+            "type": "string",
+            "description": "Full name of the subdivision."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "country": {
+      "type": "object",
+      "required": ["code", "name"],
+      "description": "Country information for the IP location.",
+      "properties": {
+        "code": {
+          "type": ["string", "null"],
+          "description": "ISO 3166-1 alpha-2 country code."
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Full country name."
+        }
+      },
+      "additionalProperties": false
+    },
+    "continent": {
+      "type": "object",
+      "required": ["code", "name"],
+      "description": "Continent information for the IP location.",
+      "properties": {
+        "code": {
+          "type": ["string", "null"],
+          "description": "Two-letter continent code (e.g., OC for Oceania, EU for Europe)."
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Full continent name."
+        }
+      },
+      "additionalProperties": false
+    },
+    "is_in_european_union": {
+      "type": "boolean",
+      "description": "Whether the IP location is within the European Union."
+    },
+    "is_anonymous_proxy": {
+      "type": "boolean",
+      "description": "Whether the IP address belongs to an anonymous proxy (VPN, Tor, etc.)."
+    },
+    "is_satellite_provider": {
+      "type": "boolean",
+      "description": "Whether the IP address belongs to a satellite internet provider."
+    },
+    "is_anycast": {
+      "type": "boolean",
+      "description": "Whether the IP address is an anycast address."
+    }
+  },
+  "additionalProperties": false
+}

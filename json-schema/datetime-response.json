@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://timeapi.world/schemas/datetime-response.json",
+  "title": "DateTimeJsonResponse",
+  "description": "Current time and timezone details returned by the /timezone and /ip endpoints.",
+  "type": "object",
+  "required": [
+    "abbreviation",
+    "client_ip",
+    "datetime",
+    "day_of_week",
+    "day_of_year",
+    "dst",
+    "dst_offset",
+    "timezone",
+    "unixtime",
+    "utc_datetime",
+    "utc_offset",
+    "week_number"
+  ],
+  "properties": {
+    "abbreviation": {
+      "type": "string",
+      "description": "The abbreviated name of the timezone (e.g., EDT, BST, AEST)."
+    },
+    "client_ip": {
+      "type": "string",
+      "description": "The IP address of the client making the request."
+    },
+    "datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "An ISO 8601-valid string representing the current local date/time (YYYY-MM-DDTHH:MM:SS.ssssss±HH:MM)."
+    },
+    "day_of_week": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6,
+      "description": "Current day number of the week, where Sunday is 0."
+    },
+    "day_of_year": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 366,
+      "description": "Ordinal date of the current year (1–366)."
+    },
+    "dst": {
+      "type": "boolean",
+      "description": "Flag indicating whether the local time is currently in daylight saving time."
+    },
+    "dst_from": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 datetime of a DST transition. When DST is active, shows when the current DST period started. When DST is not active, shows when the next DST period will begin. Null if the timezone does not observe DST."
+    },
+    "dst_offset": {
+      "type": "integer",
+      "description": "The difference in seconds between the current local time and daylight saving time for the location."
+    },
+    "dst_until": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 datetime of a DST transition. When DST is active, shows when the current DST period will end. When DST is not active, shows when the last DST period ended. Null if the timezone does not observe DST."
+    },
+    "raw_offset": {
+      "type": "integer",
+      "description": "The difference in seconds between the current local time and UTC, excluding any DST offset."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA timezone identifier in Area/Location or Area/Location/Region format."
+    },
+    "unixtime": {
+      "type": "integer",
+      "description": "Number of seconds since the Unix epoch (1970-01-01T00:00:00Z)."
+    },
+    "utc_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "An ISO 8601-valid string representing the current date/time in UTC."
+    },
+    "utc_offset": {
+      "type": "string",
+      "description": "An ISO 8601-valid string representing the UTC offset in ±HH:MM format."
+    },
+    "week_number": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 53,
+      "description": "The current ISO week number (1–53)."
+    }
+  },
+  "additionalProperties": false
+}

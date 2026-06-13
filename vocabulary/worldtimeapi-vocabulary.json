@@ -1,0 +1,86 @@
+{
+  "title": "World Time API Vocabulary",
+  "description": "Key terms and domain concepts used by the World Time API (timeapi.world).",
+  "terms": [
+    {
+      "term": "IANA Timezone",
+      "definition": "A timezone identifier from the IANA Time Zone Database (tz database), formatted as Area/Location or Area/Location/Region (e.g., America/New_York, America/Argentina/Buenos_Aires). The World Time API supports 537 IANA timezones."
+    },
+    {
+      "term": "UTC Offset",
+      "definition": "The difference between Coordinated Universal Time (UTC) and the local timezone, expressed in ±HH:MM format (e.g., +05:30 for IST, -05:00 for EST)."
+    },
+    {
+      "term": "raw_offset",
+      "definition": "The base UTC offset for a timezone in seconds, excluding any daylight saving time adjustment. For example, US Eastern Standard Time has a raw_offset of -18000 (-5 hours)."
+    },
+    {
+      "term": "DST",
+      "definition": "Daylight Saving Time — the seasonal practice of advancing clocks by one hour during warmer months to extend evening daylight. Indicated by the dst boolean field."
+    },
+    {
+      "term": "dst_offset",
+      "definition": "The additional offset in seconds applied when DST is in effect. Typically 3600 (1 hour) when active, 0 when not active."
+    },
+    {
+      "term": "dst_from",
+      "definition": "An ISO 8601 datetime indicating a DST boundary. When DST is active, this is when the current DST period started. When DST is not active, this is when the next DST period will begin. Null for timezones that do not observe DST."
+    },
+    {
+      "term": "dst_until",
+      "definition": "An ISO 8601 datetime indicating a DST boundary. When DST is active, this is when the current DST period will end. When DST is not active, this is when the last DST period ended. Null for timezones that do not observe DST."
+    },
+    {
+      "term": "unixtime",
+      "definition": "Unix epoch time — the number of seconds elapsed since 1970-01-01T00:00:00Z (UTC), also known as POSIX time or Unix timestamp."
+    },
+    {
+      "term": "abbreviation",
+      "definition": "The short human-readable name for the active timezone offset (e.g., EST, EDT, BST, AEST). Note: abbreviations are not globally unique — the same abbreviation can refer to different offsets in different regions."
+    },
+    {
+      "term": "week_number",
+      "definition": "The ISO 8601 week number of the year, ranging from 1 to 53. Week 1 is the week containing the year's first Thursday."
+    },
+    {
+      "term": "day_of_week",
+      "definition": "Integer representing the day of the week, where 0 = Sunday, 1 = Monday, ..., 6 = Saturday."
+    },
+    {
+      "term": "day_of_year",
+      "definition": "The ordinal day of the year, where January 1 = 1 and December 31 = 365 (or 366 in a leap year)."
+    },
+    {
+      "term": "client_ip",
+      "definition": "The IPv4 or IPv6 address of the API client as seen by the server. Returned in all /timezone and /ip responses."
+    },
+    {
+      "term": "IP Geolocation",
+      "definition": "The process of estimating the geographic location (city, country, coordinates, timezone) of an IP address using open-source geolocation databases. Results are best-effort estimates, not guaranteed to be accurate."
+    },
+    {
+      "term": "accuracy_radius",
+      "definition": "The estimated accuracy of the IP geolocation result in kilometers. A smaller radius indicates higher confidence in the location estimate."
+    },
+    {
+      "term": "anycast",
+      "definition": "A network addressing method where the same IP address is announced from multiple geographic locations. Requests are routed to the nearest node. Common for CDN and DNS providers (e.g., Cloudflare 1.1.1.1)."
+    },
+    {
+      "term": "anonymous_proxy",
+      "definition": "An IP address associated with a service that hides the user's real location, such as a VPN, Tor exit node, or open proxy."
+    },
+    {
+      "term": "ISO 8601",
+      "definition": "International standard for date and time representations. The API uses the extended format: YYYY-MM-DDTHH:MM:SS.ssssss±HH:MM."
+    },
+    {
+      "term": "plain-text response",
+      "definition": "An alternative response format returned by endpoints with the .txt suffix (e.g., /timezone/America/Chicago.txt). Fields are formatted as key: value pairs, one per line, compatible with the original worldtimeapi.org format."
+    },
+    {
+      "term": "Cloudflare Workers",
+      "definition": "The serverless edge compute platform on which timeapi.world is built, enabling p99 latency under 40ms globally without traditional server infrastructure."
+    }
+  ]
+}

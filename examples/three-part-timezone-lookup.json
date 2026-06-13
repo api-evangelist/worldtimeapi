@@ -1,0 +1,32 @@
+{
+  "title": "Three-Part Timezone Lookup Example",
+  "description": "Request the current time for a three-part IANA timezone (Area/Location/Region).",
+  "request": {
+    "method": "GET",
+    "url": "https://public.timeapi.world/api/timezone/America/Argentina/Buenos_Aires",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "abbreviation": "-03",
+      "datetime": "2025-09-12T09:30:07.347-03:00",
+      "day_of_week": 5,
+      "day_of_year": 255,
+      "dst": false,
+      "dst_from": null,
+      "dst_offset": 0,
+      "dst_until": null,
+      "raw_offset": -10800,
+      "timezone": "America/Argentina/Buenos_Aires",
+      "unixtime": 1757680207,
+      "utc_datetime": "2025-09-12T12:30:07.347+00:00",
+      "utc_offset": "-03:00",
+      "week_number": 37,
+      "client_ip": "127.0.0.1"
+    }
+  }
+}
