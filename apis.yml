@@ -1,0 +1,78 @@
+aid: worldtimeapi
+name: World Time API
+description: >-
+  World Time API (timeapi.world) is a free REST API that provides current time,
+  timezone information, UTC offset, DST status, and Unix epoch time for any
+  timezone or IP address. Originally hosted at worldtimeapi.org (now sunset),
+  the service continues as a source-available, drop-in compatible successor
+  built on Cloudflare Workers with p99 latency under 40ms. It supports 537
+  IANA timezones, IP-to-timezone conversion, and IP geolocation. The API
+  returns JSON or plain-text responses and requires no authentication on the
+  free tier.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/worldtimeapi/refs/heads/main/apis.yml
+created: 2026-06-13
+modified: 2026-06-13
+specificationVersion: "0.19"
+tags:
+  - Time
+  - Timezone
+  - World Time
+  - UTC
+  - DST
+  - Daylight Saving Time
+  - IP Geolocation
+  - Unix Epoch
+apis:
+  - aid: worldtimeapi:world-time-api
+    name: World Time API
+    description: >-
+      REST API returning current local time, timezone details, UTC offset, DST
+      status, Unix timestamp, and geolocation for any IANA timezone identifier
+      or IPv4/IPv6 address. Responses are available in JSON and plain-text
+      formats. No authentication required on the free tier; API keys available
+      for paid and enterprise plans.
+    humanURL: https://timeapi.world/
+    baseURL: https://timeapi.world/api
+    tags:
+      - Time
+      - Timezone
+      - IP Geolocation
+    properties:
+      - type: Documentation
+        url: https://timeapi.world/
+      - type: OpenAPI
+        url: https://timeapi.world/schema
+      - type: Pricing
+        url: https://timeapi.world/pricing
+      - type: FAQ
+        url: https://timeapi.world/faq
+      - type: GitHubRepository
+        url: https://github.com/sleeyax/world-time-api
+    contact:
+      - FN: sleeyax
+        url: https://github.com/sleeyax
+        X: https://x.com/sleeyax
+common:
+  - type: Website
+    url: https://timeapi.world/
+  - type: Documentation
+    url: https://timeapi.world/
+  - type: GitHubOrg
+    url: https://github.com/sleeyax/world-time-api
+  - type: Blog
+    url: https://dev.to/sleeyax/i-built-a-better-world-time-api-14mh
+  - type: Pricing
+    url: https://timeapi.world/pricing
+  - type: X
+    url: https://x.com/sleeyax
+  - type: Plans
+    url: plans/worldtimeapi-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/worldtimeapi-rate-limits.yml
+  - type: FinOps
+    url: finops/worldtimeapi-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

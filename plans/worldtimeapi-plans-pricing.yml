@@ -1,0 +1,62 @@
+name: World Time API Plans and Pricing
+description: Pricing plans for the World Time API (timeapi.world), the successor to the now-sunset worldtimeapi.org, providing current time and timezone data globally.
+url: https://timeapi.world/pricing
+plans:
+  - name: Free
+    price: 0
+    currency: USD
+    period: month
+    requests: 20000
+    features:
+      - Full API access
+      - Community support
+    overage: false
+  - name: Starter
+    price: 5
+    currency: USD
+    period: month
+    requests: 50000
+    features:
+      - Full API access
+      - Priority support (tier B)
+    overage: true
+    overageRate: 0.0003
+    overageUnit: request
+  - name: Standard
+    price: 10
+    currency: USD
+    period: month
+    requests: 100000
+    features:
+      - Full API access
+      - Priority support (tier A)
+    overage: true
+    overageRate: 0.0002
+    overageUnit: request
+  - name: Pro
+    price: 20
+    currency: USD
+    period: month
+    requests: 200000
+    features:
+      - Full API access
+      - Priority support (tier S)
+    overage: true
+    overageRate: 0.0001
+    overageUnit: request
+  - name: Enterprise
+    price: custom
+    currency: USD
+    period: month
+    requests: 1000000
+    features:
+      - Full API access
+      - Dedicated support
+      - Unlimited requests
+    overage: false
+notes:
+  - No setup fees or hidden costs
+  - Plan changes take effect immediately
+  - Free tier users face request rejections beyond limits
+  - Paid users incur overage charges at per-request rates
+  - Recommended to start on the free tier to confirm fit before paying

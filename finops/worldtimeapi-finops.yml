@@ -1,0 +1,53 @@
+name: World Time API FinOps
+description: Financial operations guidance for managing costs when consuming the World Time API (timeapi.world).
+url: https://timeapi.world/pricing
+optimization:
+  - strategy: Start on the free tier
+    detail: The free tier provides 20,000 requests/month at no cost. Validate fit before committing to a paid plan.
+  - strategy: Cache responses locally
+    detail: Timezone offsets and DST rules change infrequently. Cache /timezone/{tz} responses for at least 60 seconds to reduce API calls.
+  - strategy: Batch IP lookups
+    detail: Where possible, resolve timezone from a single IP lookup and reuse for subsequent requests within a session.
+  - strategy: Monitor monthly usage
+    detail: Track X-RateLimit-Remaining headers to avoid unexpected quota exhaustion or overage charges.
+  - strategy: Choose the right plan tier
+    detail: Paid tiers offer decreasing overage rates at higher volume; the Pro plan ($20/month) has the lowest overage rate ($0.0001/request), suitable for burst workloads.
+costs:
+  - plan: Free
+    monthlyBase: 0
+    includedRequests: 20000
+    overagePerRequest: 0
+    currency: USD
+  - plan: Starter
+    monthlyBase: 5
+    includedRequests: 50000
+    overagePerRequest: 0.0003
+    currency: USD
+  - plan: Standard
+    monthlyBase: 10
+    includedRequests: 100000
+    overagePerRequest: 0.0002
+    currency: USD
+  - plan: Pro
+    monthlyBase: 20
+    includedRequests: 200000
+    overagePerRequest: 0.0001
+    currency: USD
+  - plan: Enterprise
+    monthlyBase: custom
+    includedRequests: 1000000+
+    overagePerRequest: custom
+    currency: USD
+breakEvenAnalysis:
+  - fromPlan: Free
+    toPlan: Starter
+    breakEvenRequests: 20000
+    note: Upgrade when exceeding 20,000 requests/month to avoid request rejection
+  - fromPlan: Starter
+    toPlan: Standard
+    breakEvenRequests: 66667
+    note: At $0.0003 overage on Starter, Standard ($10) becomes cheaper above ~66,667 total requests
+  - fromPlan: Standard
+    toPlan: Pro
+    breakEvenRequests: 150000
+    note: At $0.0002 overage on Standard, Pro ($20) becomes cheaper above ~150,000 total requests

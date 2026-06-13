@@ -1,0 +1,46 @@
+name: World Time API Rate Limits
+description: Rate limiting details for the World Time API (timeapi.world). There is no per-second or per-minute throttle; requests are limited only by monthly quota per plan.
+url: https://timeapi.world/faq
+rateLimits:
+  - type: monthly
+    plan: Free
+    limit: 20000
+    period: month
+    unit: requests
+    enforcement: Request rejected (HTTP 429) when quota exceeded
+  - type: monthly
+    plan: Starter
+    limit: 50000
+    period: month
+    unit: requests
+    enforcement: Overage charges apply at $0.0003 per request
+  - type: monthly
+    plan: Standard
+    limit: 100000
+    period: month
+    unit: requests
+    enforcement: Overage charges apply at $0.0002 per request
+  - type: monthly
+    plan: Pro
+    limit: 200000
+    period: month
+    unit: requests
+    enforcement: Overage charges apply at $0.0001 per request
+  - type: monthly
+    plan: Enterprise
+    limit: 1000000
+    period: month
+    unit: requests
+    enforcement: Dedicated support; custom limits negotiated
+headers:
+  - name: X-RateLimit-Limit
+    description: Total monthly request quota for the current plan
+  - name: X-RateLimit-Remaining
+    description: Number of requests remaining in the current billing period
+  - name: X-RateLimit-Reset
+    description: Unix timestamp when the quota resets
+notes:
+  - No per-second or per-minute rate throttle; only monthly quotas apply
+  - Over-limit requests receive HTTP 429 Too Many Requests
+  - Enterprise customers may obtain direct API keys (non-RapidAPI) with configurable per-month limits
+  - IP addresses submitted to /ip or /geo endpoints are not stored
