@@ -55,6 +55,8 @@ apis:
         url: https://github.com/sleeyax
         X: https://x.com/sleeyax
 common:
+  - type: DomainSecurity
+    url: security/worldtimeapi-domain-security.yml
   - type: Website
     url: https://timeapi.world/
   - type: Documentation

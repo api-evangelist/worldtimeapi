@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: timeapi.world
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  5 15:33:09 2026 GMT
+  hsts: false
+- host: public.timeapi.world
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  5 15:33:09 2026 GMT
+  hsts: null
+domains:
+- domain: timeapi.world
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
