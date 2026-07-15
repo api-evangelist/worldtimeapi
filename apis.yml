@@ -55,6 +55,8 @@ apis:
         url: https://github.com/sleeyax
         X: https://x.com/sleeyax
 common:
+  - type: AgenticAccess
+    url: agentic-access/worldtimeapi-agentic-access.yml
   - type: DomainSecurity
     url: security/worldtimeapi-domain-security.yml
   - type: Website
