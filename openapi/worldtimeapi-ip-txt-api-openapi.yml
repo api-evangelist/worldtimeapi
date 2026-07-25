@@ -1,0 +1,70 @@
+openapi: 3.0.1
+info:
+  title: World Time Geo Ip.txt API
+  version: '2025-10-01'
+  description: API to get the current local time details for a given timezone or IP address
+servers:
+- url: https://public.timeapi.world/api/
+tags:
+- name: Ip.txt
+paths:
+  /ip.txt:
+    get:
+      summary: 'request the current time based on the ip of the request. note: this is a "best guess" obtained from open-source data.'
+      responses:
+        '200':
+          description: the current time for the timezone determined from client IP in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/DateTimeTextResponse'
+              example: 'abbreviation: BST
+
+                datetime: 2025-09-12T14:28:04.754+01:00
+
+                day_of_week: 5
+
+                day_of_year: 255
+
+                dst: true
+
+                dst_from: 2025-03-30T01:00:00+00:00
+
+                dst_offset: 3600
+
+                dst_until: 2025-10-26T01:00:00+00:00
+
+                raw_offset: 0
+
+                timezone: Europe/London
+
+                unixtime: 1757683684
+
+                utc_datetime: 2025-09-12T13:28:04.754+00:00
+
+                utc_offset: +01:00
+
+                week_number: 37
+
+                client_ip: 127.0.0.1
+
+                '
+        default:
+          $ref: '#/components/responses/ErrorTextResponse'
+      tags:
+      - Ip.txt
+components:
+  schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
+  responses:
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'

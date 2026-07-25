@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: World Time Geo Timezone.txt API
+  version: '2025-10-01'
+  description: API to get the current local time details for a given timezone or IP address
+servers:
+- url: https://public.timeapi.world/api/
+tags:
+- name: Timezone.txt
+paths:
+  /timezone.txt:
+    get:
+      summary: a listing of all timezones.
+      responses:
+        default:
+          $ref: '#/components/responses/SuccessfulListTextResponse'
+      tags:
+      - Timezone.txt
+components:
+  schemas:
+    ListTextResponse:
+      type: string
+      description: a list of available timezones, one per line
+  responses:
+    SuccessfulListTextResponse:
+      description: the list of available timezones in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ListTextResponse'
+          example: 'Africa/Abidjan
+
+            Africa/Accra
+
+            Africa/Addis_Ababa
+
+            Africa/Algiers
+
+            Africa/Asmara
+
+            Africa/Asmera
+
+            Africa/Bamako
+
+            '

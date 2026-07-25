@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: World Time Geo Geo.txt API
+  version: '2025-10-01'
+  description: API to get the current local time details for a given timezone or IP address
+servers:
+- url: https://public.timeapi.world/api/
+tags:
+- name: Geo.txt
+paths:
+  /geo.txt:
+    get:
+      summary: 'request geolocation data based on the ip of the request. note: this is a "best guess" obtained from open-source data.'
+      responses:
+        '200':
+          description: geolocation data for the client IP in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GeoTextResponse'
+              example: 'ip: 1.1.1.1
+
+                latitude: -33.8591
+
+                longitude: 151.2002
+
+                accuracy_radius: 1000
+
+                timezone: Australia/Sydney
+
+                city: Sydney
+
+                postal_code: 2000
+
+                subdivisions: NSW (New South Wales)
+
+                country_code: AU
+
+                country_name: Australia
+
+                continent_code: OC
+
+                continent_name: Oceania
+
+                is_in_european_union: false
+
+                is_anonymous_proxy: false
+
+                is_satellite_provider: false
+
+                is_anycast: false
+
+                '
+        default:
+          $ref: '#/components/responses/ErrorTextResponse'
+      tags:
+      - Geo.txt
+components:
+  schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
+    GeoTextResponse:
+      type: string
+      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
+  responses:
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'

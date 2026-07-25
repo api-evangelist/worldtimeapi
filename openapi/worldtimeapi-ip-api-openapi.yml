@@ -1,0 +1,233 @@
+openapi: 3.0.1
+info:
+  title: World Time Geo Ip API
+  version: '2025-10-01'
+  description: API to get the current local time details for a given timezone or IP address
+servers:
+- url: https://public.timeapi.world/api/
+tags:
+- name: Ip
+paths:
+  /ip:
+    get:
+      summary: 'request the current time based on the ip of the request. note: this is a "best guess" obtained from open-source data.'
+      responses:
+        '200':
+          description: the current time for the timezone determined from client IP in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateTimeJsonResponse'
+              example:
+                abbreviation: BST
+                datetime: '2025-09-12T14:28:04.754+01:00'
+                day_of_week: 5
+                day_of_year: 255
+                dst: true
+                dst_from: '2025-03-30T01:00:00+00:00'
+                dst_offset: 3600
+                dst_until: '2025-10-26T01:00:00+00:00'
+                raw_offset: 0
+                timezone: Europe/London
+                unixtime: 1757683684
+                utc_datetime: '2025-09-12T13:28:04.754+00:00'
+                utc_offset: +01:00
+                week_number: 37
+                client_ip: 127.0.0.1
+        default:
+          $ref: '#/components/responses/ErrorJsonResponse'
+      tags:
+      - Ip
+  /ip/{ip}:
+    get:
+      summary: 'request the current time based on a specific IPv4 or IPv6 address. note: this is a "best guess" obtained from open-source data.'
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        description: IPv4 or IPv6 address
+        schema:
+          type: string
+        examples:
+          ipv4:
+            value: 1.1.1.1
+            summary: IPv4 address
+          ipv6:
+            value: 2606:4700:4700::1111
+            summary: IPv6 address (Cloudflare DNS)
+      responses:
+        '200':
+          description: the current time for the timezone determined from the specified IP in JSON format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateTimeJsonResponse'
+              example:
+                abbreviation: AEST
+                datetime: '2025-09-12T22:24:30.887+10:00'
+                day_of_week: 5
+                day_of_year: 255
+                dst: false
+                dst_from: null
+                dst_offset: 0
+                dst_until: null
+                raw_offset: 36000
+                timezone: Australia/Sydney
+                unixtime: 1757679870
+                utc_datetime: '2025-09-12T12:24:30.887+00:00'
+                utc_offset: '+10:00'
+                week_number: 37
+                client_ip: 127.0.0.1
+        default:
+          $ref: '#/components/responses/ErrorJsonResponse'
+      tags:
+      - Ip
+  /ip/{ip}.txt:
+    get:
+      summary: 'request the current time based on a specific IPv4 or IPv6 address. note: this is a "best guess" obtained from open-source data.'
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        description: IPv4 or IPv6 address
+        schema:
+          type: string
+        examples:
+          ipv4:
+            value: 1.1.1.1
+            summary: IPv4 address
+          ipv6:
+            value: 2606:4700:4700::1111
+            summary: IPv6 address (Cloudflare DNS)
+      responses:
+        '200':
+          description: the current time for the timezone determined from the specified IP in plain text
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/DateTimeTextResponse'
+              example: 'abbreviation: AEST
+
+                datetime: 2025-09-12T22:24:30.887+10:00
+
+                day_of_week: 5
+
+                day_of_year: 255
+
+                dst: false
+
+                dst_from:
+
+                dst_offset: 0
+
+                dst_until:
+
+                raw_offset: 36000
+
+                timezone: Australia/Sydney
+
+                unixtime: 1757679870
+
+                utc_datetime: 2025-09-12T12:24:30.887+00:00
+
+                utc_offset: +10:00
+
+                week_number: 37
+
+                client_ip: 127.0.0.1
+
+                '
+        default:
+          $ref: '#/components/responses/ErrorTextResponse'
+      tags:
+      - Ip
+components:
+  schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
+    DateTimeJsonResponse:
+      required:
+      - abbreviation
+      - client_ip
+      - datetime
+      - day_of_week
+      - day_of_year
+      - dst
+      - dst_offset
+      - timezone
+      - unixtime
+      - utc_datetime
+      - utc_offset
+      - week_number
+      properties:
+        abbreviation:
+          type: string
+          description: the abbreviated name of the timezone
+        client_ip:
+          type: string
+          description: the IP of the client making the request
+        datetime:
+          type: string
+          description: an ISO8601-valid string representing the current, local date/time
+        day_of_week:
+          type: integer
+          description: current day number of the week, where sunday is 0
+        day_of_year:
+          type: integer
+          description: ordinal date of the current year
+        dst:
+          type: boolean
+          description: flag indicating whether the local time is in daylight savings
+        dst_from:
+          type: string
+          nullable: true
+          description: 'an ISO8601-valid string representing the datetime of a DST transition. When DST is active (dst=true): shows when the current DST period started. When DST is NOT active (dst=false): shows when the next DST period will begin (future date). Returns null if the timezone does not observe DST.'
+        dst_offset:
+          type: integer
+          description: the difference in seconds between the current local time and daylight saving time for the location
+        dst_until:
+          type: string
+          nullable: true
+          description: 'an ISO8601-valid string representing the datetime of a DST transition. When DST is active (dst=true): shows when the current DST period will end (future date). When DST is NOT active (dst=false): shows when the last DST period ended (past date). Returns null if the timezone does not observe DST.'
+        raw_offset:
+          type: integer
+          description: the difference in seconds between the current local time and the time in UTC, excluding any daylight saving difference (see dst_offset)
+        timezone:
+          type: string
+          description: timezone in `Area/Location` or `Area/Location/Region` format
+        unixtime:
+          type: integer
+          description: number of seconds since the Epoch
+        utc_datetime:
+          type: string
+          description: an ISO8601-valid string representing the current date/time in UTC
+        utc_offset:
+          type: string
+          description: an ISO8601-valid string representing the offset from UTC
+        week_number:
+          type: integer
+          description: the current week number
+    ErrorJsonResponse:
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: details about the error encountered
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
+  responses:
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'
+    ErrorJsonResponse:
+      description: an error response in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorJsonResponse'
