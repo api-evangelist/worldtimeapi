@@ -1,0 +1,24 @@
+{
+  "provider": "worldtimeapi",
+  "sources": [
+    "worldtimeapi-geo-api-openapi.yml",
+    "worldtimeapi-geo-txt-api-openapi.yml",
+    "worldtimeapi-ip-api-openapi.yml",
+    "worldtimeapi-ip-txt-api-openapi.yml",
+    "worldtimeapi-timezone-api-openapi.yml",
+    "worldtimeapi-timezone-txt-api-openapi.yml"
+  ],
+  "outputs": [
+    "worldtimeapi-geo-api-openapi.yml",
+    "worldtimeapi-geo-txt-api-openapi.yml",
+    "worldtimeapi-ip-api-openapi.yml",
+    "worldtimeapi-ip-txt-api-openapi.yml",
+    "worldtimeapi-timezone-api-openapi.yml",
+    "worldtimeapi-timezone-txt-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
