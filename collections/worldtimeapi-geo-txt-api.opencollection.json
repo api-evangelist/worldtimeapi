@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "World Time Geo Geo.txt API",
+    "version": "2025-10-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Geo.txt",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "request geolocation data based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/geo.txt"
+          },
+          "docs": "request geolocation data based on the ip of the request. note: this is a \"best guess\" obtained from open-source data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

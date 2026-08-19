@@ -1,0 +1,981 @@
+{
+  "item": [
+    {
+      "id": "586ac31c-9b8e-4eaf-8890-fa5ed053c2d7",
+      "name": "Timezone",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4fa8e9a0-6a56-4343-8e2d-f142e661d03f",
+          "name": "a listing of all timezones.",
+          "request": {
+            "name": "a listing of all timezones.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e100460-5981-4100-8d71-8263b6cdadaf",
+              "name": "the list of available timezones in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"Africa/Abidjan\",\n  \"Africa/Accra\",\n  \"Africa/Addis_Ababa\",\n  \"Africa/Algiers\",\n  \"Africa/Asmara\",\n  \"Africa/Asmera\",\n  \"Africa/Bamako\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53fb1a6c-e27a-4366-a2c5-bae9984fcf87",
+          "name": "a listing of all timezones available for that area.",
+          "request": {
+            "name": "a listing of all timezones available for that area.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone",
+                ":area"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "area",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee76c2ba-9e45-412a-bd54-6dc648ef6b3b",
+              "name": "the list of available timezones in JSON format for the specified area",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"Africa/Abidjan\",\n  \"Africa/Accra\",\n  \"Africa/Addis_Ababa\",\n  \"Africa/Algiers\",\n  \"Africa/Asmara\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad1cd40e-e47f-4c13-83fc-8c94157ab6fb",
+              "name": "an error response in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72b93d3a-42d0-4d2d-91fe-84a1bcbdb749",
+          "name": "a listing of all timezones available for that area.",
+          "request": {
+            "name": "a listing of all timezones available for that area.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone",
+                "{{area}}.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17be37ed-beba-40ed-8588-184b7a1f913b",
+              "name": "the list of available timezones in plain text for the specified area",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "{{area}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "Africa/Abidjan\nAfrica/Accra\nAfrica/Addis_Ababa\nAfrica/Algiers\nAfrica/Asmara\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13238e5b-4303-4e44-8c08-6c36f15dcb1c",
+              "name": "an error response in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "{{area}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e93c3d3-dda1-442f-8da0-9b14cb0b217e",
+          "name": "request the current time for a timezone.",
+          "request": {
+            "name": "request the current time for a timezone.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone",
+                ":area",
+                ":location"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "area",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fef84ee2-8153-492e-b3dd-6b529831e1d6",
+              "name": "the current time for the timezone requested in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    ":location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"abbreviation\": \"GMT\",\n  \"datetime\": \"2025-09-12T12:18:29.438+00:00\",\n  \"day_of_week\": 5,\n  \"day_of_year\": 255,\n  \"dst\": false,\n  \"dst_from\": null,\n  \"dst_offset\": 0,\n  \"dst_until\": null,\n  \"raw_offset\": 0,\n  \"timezone\": \"Africa/Abidjan\",\n  \"unixtime\": 1757679509,\n  \"utc_datetime\": \"2025-09-12T12:18:29.438+00:00\",\n  \"utc_offset\": \"+00:00\",\n  \"week_number\": 37,\n  \"client_ip\": \"127.0.0.1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03fa9e36-df3f-49ba-ad2b-1143bc5a77eb",
+              "name": "an error response in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    ":location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0130caac-703e-4363-acc2-c2c92ee4e9ca",
+          "name": "request the current time for a timezone.",
+          "request": {
+            "name": "request the current time for a timezone.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone",
+                ":area",
+                "{{location}}.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "area",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b9df7c2-4662-4ecc-95b8-902f785eb08b",
+              "name": "the current time for the timezone requested in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    "{{location}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "abbreviation: GMT\ndatetime: 2025-09-12T12:18:29.438+00:00\nday_of_week: 5\nday_of_year: 255\ndst: false\ndst_from:\ndst_offset: 0\ndst_until:\nraw_offset: 0\ntimezone: Africa/Abidjan\nunixtime: 1757679509\nutc_datetime: 2025-09-12T12:18:29.438+00:00\nutc_offset: +00:00\nweek_number: 37\nclient_ip: 127.0.0.1\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "29733dc4-bf94-4bf1-bc7a-d698be394b2d",
+              "name": "an error response in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    "{{location}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1809427-4d6f-4e33-8f58-ce71e638feb2",
+          "name": "request the current time for a timezone.",
+          "request": {
+            "name": "request the current time for a timezone.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone",
+                ":area",
+                ":location",
+                ":region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "area",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "region",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "972005b7-666d-4c2c-8c73-b9371c4ab395",
+              "name": "the current time for the timezone requested in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    ":location",
+                    ":region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "region",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"abbreviation\": \"-03\",\n  \"datetime\": \"2025-09-12T09:30:07.347-03:00\",\n  \"day_of_week\": 5,\n  \"day_of_year\": 255,\n  \"dst\": false,\n  \"dst_from\": null,\n  \"dst_offset\": 0,\n  \"dst_until\": null,\n  \"raw_offset\": -10800,\n  \"timezone\": \"America/Argentina/Buenos_Aires\",\n  \"unixtime\": 1757680207,\n  \"utc_datetime\": \"2025-09-12T12:30:07.347+00:00\",\n  \"utc_offset\": \"-03:00\",\n  \"week_number\": 37,\n  \"client_ip\": \"127.0.0.1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fca2813c-67f4-4df2-baf2-f6e764886f7d",
+              "name": "an error response in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    ":location",
+                    ":region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "region",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb0e8d7c-a644-46b4-a2c4-b5e85e4cdee9",
+          "name": "request the current time for a timezone.",
+          "request": {
+            "name": "request the current time for a timezone.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone",
+                ":area",
+                ":location",
+                "{{region}}.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "area",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9555d1a-3701-4089-adb0-497920d50f41",
+              "name": "the current time for the timezone requested in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    ":location",
+                    "{{region}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "abbreviation: -03\ndatetime: 2025-09-12T09:30:07.347-03:00\nday_of_week: 5\nday_of_year: 255\ndst: false\ndst_from:\ndst_offset: 0\ndst_until:\nraw_offset: -10800\ntimezone: America/Argentina/Buenos_Aires\nunixtime: 1757680207\nutc_datetime: 2025-09-12T12:30:07.347+00:00\nutc_offset: -03:00\nweek_number: 37\nclient_ip: 127.0.0.1\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1558be6b-0031-49f4-b905-78a44ca1494b",
+              "name": "an error response in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    ":area",
+                    ":location",
+                    "{{region}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "area",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public.timeapi.world/api/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "area"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "location"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "region"
+    }
+  ],
+  "info": {
+    "_postman_id": "d689adf8-5e61-4e98-a45e-fe73b8ce1bd6",
+    "name": "World Time Geo Timezone API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API to get the current local time details for a given timezone or IP address",
+      "type": "text/plain"
+    }
+  }
+}

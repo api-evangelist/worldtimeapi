@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "ba980ee7-23aa-4ca5-a2ef-100a27178211",
+      "name": "Ip",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cfd09505-a041-4678-928e-c8e068b36dcf",
+          "name": "request the current time based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+          "request": {
+            "name": "request the current time based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+            "description": {},
+            "url": {
+              "path": [
+                "ip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "106dee16-b0b2-4ae9-8207-b118836e6884",
+              "name": "the current time for the timezone determined from client IP in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"abbreviation\": \"BST\",\n  \"datetime\": \"2025-09-12T14:28:04.754+01:00\",\n  \"day_of_week\": 5,\n  \"day_of_year\": 255,\n  \"dst\": true,\n  \"dst_from\": \"2025-03-30T01:00:00+00:00\",\n  \"dst_offset\": 3600,\n  \"dst_until\": \"2025-10-26T01:00:00+00:00\",\n  \"raw_offset\": 0,\n  \"timezone\": \"Europe/London\",\n  \"unixtime\": 1757683684,\n  \"utc_datetime\": \"2025-09-12T13:28:04.754+00:00\",\n  \"utc_offset\": \"+01:00\",\n  \"week_number\": 37,\n  \"client_ip\": \"127.0.0.1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d448f77-3e25-4251-a217-e9e1b93e8333",
+              "name": "an error response in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb56aead-bdcc-4ee7-baf6-e62c10fd2fb3",
+          "name": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+          "request": {
+            "name": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+            "description": {},
+            "url": {
+              "path": [
+                "ip",
+                ":ip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ip",
+                  "description": "(Required) IPv4 or IPv6 address"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd90801e-259b-4a45-9ef9-f197da1061c9",
+              "name": "the current time for the timezone determined from the specified IP in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip",
+                    ":ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ip",
+                      "description": "(Required) IPv4 or IPv6 address"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"abbreviation\": \"AEST\",\n  \"datetime\": \"2025-09-12T22:24:30.887+10:00\",\n  \"day_of_week\": 5,\n  \"day_of_year\": 255,\n  \"dst\": false,\n  \"dst_from\": null,\n  \"dst_offset\": 0,\n  \"dst_until\": null,\n  \"raw_offset\": 36000,\n  \"timezone\": \"Australia/Sydney\",\n  \"unixtime\": 1757679870,\n  \"utc_datetime\": \"2025-09-12T12:24:30.887+00:00\",\n  \"utc_offset\": \"+10:00\",\n  \"week_number\": 37,\n  \"client_ip\": \"127.0.0.1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4cdee0d-e866-47fe-8106-d7933efd50c9",
+              "name": "an error response in JSON format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip",
+                    ":ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ip",
+                      "description": "(Required) IPv4 or IPv6 address"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6195e6a6-d9f7-471a-8052-d25409d54e03",
+          "name": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+          "request": {
+            "name": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+            "description": {},
+            "url": {
+              "path": [
+                "ip",
+                "{{ip}}.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "015bee6a-f2ee-4151-a69a-0b811551e0fa",
+              "name": "the current time for the timezone determined from the specified IP in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip",
+                    "{{ip}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "abbreviation: AEST\ndatetime: 2025-09-12T22:24:30.887+10:00\nday_of_week: 5\nday_of_year: 255\ndst: false\ndst_from:\ndst_offset: 0\ndst_until:\nraw_offset: 36000\ntimezone: Australia/Sydney\nunixtime: 1757679870\nutc_datetime: 2025-09-12T12:24:30.887+00:00\nutc_offset: +10:00\nweek_number: 37\nclient_ip: 127.0.0.1\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4258b64e-1eae-4bcb-b340-b23cd5f2b4e4",
+              "name": "an error response in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip",
+                    "{{ip}}.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public.timeapi.world/api/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) IPv4 or IPv6 address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "ip"
+    }
+  ],
+  "info": {
+    "_postman_id": "b65fb214-8c49-42e9-b87a-2a64d57d68dd",
+    "name": "World Time Geo Ip API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API to get the current local time details for a given timezone or IP address",
+      "type": "text/plain"
+    }
+  }
+}

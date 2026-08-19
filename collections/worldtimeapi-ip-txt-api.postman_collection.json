@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "a30ea191-71bc-4b6b-a980-bd39d5819c96",
+      "name": "Ip.txt",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66bc3999-3697-4c89-9722-62c9247cbf1e",
+          "name": "request the current time based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+          "request": {
+            "name": "request the current time based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+            "description": {},
+            "url": {
+              "path": [
+                "ip.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5639f52-388f-41f7-a91b-01d7d4db05a5",
+              "name": "the current time for the timezone determined from client IP in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "abbreviation: BST\ndatetime: 2025-09-12T14:28:04.754+01:00\nday_of_week: 5\nday_of_year: 255\ndst: true\ndst_from: 2025-03-30T01:00:00+00:00\ndst_offset: 3600\ndst_until: 2025-10-26T01:00:00+00:00\nraw_offset: 0\ntimezone: Europe/London\nunixtime: 1757683684\nutc_datetime: 2025-09-12T13:28:04.754+00:00\nutc_offset: +01:00\nweek_number: 37\nclient_ip: 127.0.0.1\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f70a985-bf70-4f03-930a-3edc7c9800e5",
+              "name": "an error response in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public.timeapi.world/api/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2ebfac4b-0751-4973-adf8-14571e3d6861",
+    "name": "World Time Geo Ip.txt API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API to get the current local time details for a given timezone or IP address",
+      "type": "text/plain"
+    }
+  }
+}

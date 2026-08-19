@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "World Time Geo Ip API",
+    "version": "2025-10-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ip",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "request the current time based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/ip"
+          },
+          "docs": "request the current time based on the ip of the request. note: this is a \"best guess\" obtained from open-source data."
+        },
+        {
+          "info": {
+            "name": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/ip/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path",
+                "description": "IPv4 or IPv6 address"
+              }
+            ]
+          },
+          "docs": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data."
+        },
+        {
+          "info": {
+            "name": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/ip/:ip.txt",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path",
+                "description": "IPv4 or IPv6 address"
+              }
+            ]
+          },
+          "docs": "request the current time based on a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

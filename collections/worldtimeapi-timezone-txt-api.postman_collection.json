@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "5f198f9a-e202-4441-bf3e-a1fcdd04c0d8",
+      "name": "Timezone.txt",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2139f7c2-1cbe-4063-a5b6-4da870f69831",
+          "name": "a listing of all timezones.",
+          "request": {
+            "name": "a listing of all timezones.",
+            "description": {},
+            "url": {
+              "path": [
+                "timezone.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f2a4e61-0315-4220-8361-28f3ade84115",
+              "name": "the list of available timezones in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "Africa/Abidjan\nAfrica/Accra\nAfrica/Addis_Ababa\nAfrica/Algiers\nAfrica/Asmara\nAfrica/Asmera\nAfrica/Bamako\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public.timeapi.world/api/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "61d46a75-a40e-44e5-9754-1e01c8118381",
+    "name": "World Time Geo Timezone.txt API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API to get the current local time details for a given timezone or IP address",
+      "type": "text/plain"
+    }
+  }
+}

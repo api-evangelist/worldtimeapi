@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "World Time Geo API",
+    "version": "2025-10-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Geo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "request geolocation data based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/geo"
+          },
+          "docs": "request geolocation data based on the ip of the request. note: this is a \"best guess\" obtained from open-source data."
+        },
+        {
+          "info": {
+            "name": "request geolocation data for a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/geo/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path",
+                "description": "IPv4 or IPv6 address"
+              }
+            ]
+          },
+          "docs": "request geolocation data for a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data."
+        },
+        {
+          "info": {
+            "name": "request geolocation data for a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/geo/:ip.txt",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path",
+                "description": "IPv4 or IPv6 address"
+              }
+            ]
+          },
+          "docs": "request geolocation data for a specific IPv4 or IPv6 address. note: this is a \"best guess\" obtained from open-source data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

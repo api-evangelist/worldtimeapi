@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "World Time Geo Timezone API",
+    "version": "2025-10-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Timezone",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "a listing of all timezones.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/timezone"
+          },
+          "docs": "a listing of all timezones."
+        },
+        {
+          "info": {
+            "name": "a listing of all timezones available for that area.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/timezone/:area",
+            "params": [
+              {
+                "name": "area",
+                "value": "Africa",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "a listing of all timezones available for that area."
+        },
+        {
+          "info": {
+            "name": "a listing of all timezones available for that area.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/timezone/:area.txt",
+            "params": [
+              {
+                "name": "area",
+                "value": "Africa",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "a listing of all timezones available for that area."
+        },
+        {
+          "info": {
+            "name": "request the current time for a timezone.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/timezone/:area/:location",
+            "params": [
+              {
+                "name": "area",
+                "value": "Africa",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "Abidjan",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "request the current time for a timezone."
+        },
+        {
+          "info": {
+            "name": "request the current time for a timezone.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/timezone/:area/:location.txt",
+            "params": [
+              {
+                "name": "area",
+                "value": "Africa",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "Abidjan",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "request the current time for a timezone."
+        },
+        {
+          "info": {
+            "name": "request the current time for a timezone.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/timezone/:area/:location/:region",
+            "params": [
+              {
+                "name": "area",
+                "value": "America",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "Argentina",
+                "type": "path"
+              },
+              {
+                "name": "region",
+                "value": "Buenos_Aires",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "request the current time for a timezone."
+        },
+        {
+          "info": {
+            "name": "request the current time for a timezone.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public.timeapi.world/api/timezone/:area/:location/:region.txt",
+            "params": [
+              {
+                "name": "area",
+                "value": "America",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "Argentina",
+                "type": "path"
+              },
+              {
+                "name": "region",
+                "value": "Buenos_Aires",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "request the current time for a timezone."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

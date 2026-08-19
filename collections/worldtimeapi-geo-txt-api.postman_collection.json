@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "595461f7-1f85-4af5-abde-59fe2f9d55bc",
+      "name": "Geo.txt",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20c26dff-cca5-47e8-9b7e-19fe2a93b9b9",
+          "name": "request geolocation data based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+          "request": {
+            "name": "request geolocation data based on the ip of the request. note: this is a \"best guess\" obtained from open-source data.",
+            "description": {},
+            "url": {
+              "path": [
+                "geo.txt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de0a85c9-5a63-43fa-9a69-8432d7f63458",
+              "name": "geolocation data for the client IP in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geo.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "ip: 1.1.1.1\nlatitude: -33.8591\nlongitude: 151.2002\naccuracy_radius: 1000\ntimezone: Australia/Sydney\ncity: Sydney\npostal_code: 2000\nsubdivisions: NSW (New South Wales)\ncountry_code: AU\ncountry_name: Australia\ncontinent_code: OC\ncontinent_name: Oceania\nis_in_european_union: false\nis_anonymous_proxy: false\nis_satellite_provider: false\nis_anycast: false\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d8ba839-dfbf-4ddb-9630-bb88d4dd4ddb",
+              "name": "an error response in plain text",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geo.txt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public.timeapi.world/api/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "87f67a0e-06c4-4296-b1c3-538faa85e954",
+    "name": "World Time Geo Geo.txt API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API to get the current local time details for a given timezone or IP address",
+      "type": "text/plain"
+    }
+  }
+}
