@@ -79,6 +79,8 @@ apis:
   humanURL: https://timeapi.world/
   baseURL: https://timeapi.world/api
   tags:
+  - IP
+  tags_raw:
   - Ip
   properties:
   - type: OpenAPI
