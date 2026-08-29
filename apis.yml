@@ -10,6 +10,19 @@ description: >-
   returns JSON or plain-text responses and requires no authentication on the
   free tier.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: open
@@ -148,6 +161,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/sleeyax/world-time-api
 common:
+  - type: IssueTracker
+    url: https://github.com/sleeyax/world-time-api/issues
   - type: AgenticAccess
     url: agentic-access/worldtimeapi-agentic-access.yml
   - type: DomainSecurity
