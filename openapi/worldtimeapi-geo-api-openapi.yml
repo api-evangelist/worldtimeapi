@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: World Time Geo API
   version: '2025-10-01'
@@ -10,7 +10,7 @@ tags:
 paths:
   /geo:
     get:
-      summary: 'request geolocation data based on the ip of the request. note: this is a "best guess" obtained from open-source data.'
+      summary: request geolocation data based on the ip of the request.
       responses:
         '200':
           description: geolocation data for the client IP in JSON format
@@ -44,9 +44,11 @@ paths:
           $ref: '#/components/responses/ErrorJsonResponse'
       tags:
       - Geo
+      operationId: getGeo
+      x-operation-id-source: derived
   /geo/{ip}:
     get:
-      summary: 'request geolocation data for a specific IPv4 or IPv6 address. note: this is a "best guess" obtained from open-source data.'
+      summary: request geolocation data for a specific IPv4 or IPv6 address.
       parameters:
       - name: ip
         in: path
@@ -94,9 +96,11 @@ paths:
           $ref: '#/components/responses/ErrorJsonResponse'
       tags:
       - Geo
+      operationId: getGeoByIp
+      x-operation-id-source: derived
   /geo/{ip}.txt:
     get:
-      summary: 'request geolocation data for a specific IPv4 or IPv6 address. note: this is a "best guess" obtained from open-source data.'
+      summary: request geolocation data for a specific IPv4 or IPv6 address.
       parameters:
       - name: ip
         in: path
@@ -155,23 +159,10 @@ paths:
           $ref: '#/components/responses/ErrorTextResponse'
       tags:
       - Geo
+      operationId: getGeo{ip}Txt
+      x-operation-id-source: derived
 components:
   schemas:
-    GeoSubdivision:
-      type: object
-      required:
-      - code
-      - name
-      properties:
-        code:
-          type: string
-          description: ISO 3166-2 subdivision code
-        name:
-          type: string
-          description: subdivision name
-    ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
     GeoJsonResponse:
       type: object
       required:
@@ -195,32 +186,39 @@ components:
           type: string
           description: the IP address that was looked up
         latitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: latitude coordinate
         longitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: longitude coordinate
         accuracy_radius:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: accuracy radius in kilometers
         timezone:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: timezone in `Area/Location` or `Area/Location/Region` format
         city:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: city name
         postal_code:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: postal code
         metro_code:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: metro code (US only)
         subdivisions:
           type: array
@@ -234,12 +232,14 @@ components:
           - name
           properties:
             code:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               description: ISO 3166-1 alpha-2 country code
             name:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               description: country name
         continent:
           type: object
@@ -248,12 +248,14 @@ components:
           - name
           properties:
             code:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               description: two-letter continent code
             name:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               description: continent name
         is_in_european_union:
           type: boolean
@@ -277,16 +279,31 @@ components:
         error:
           type: string
           description: details about the error encountered
-  responses:
     ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
+      type: string
+      description: details about the error encountered in plain text
+    GeoSubdivision:
+      type: object
+      required:
+      - code
+      - name
+      properties:
+        code:
+          type: string
+          description: ISO 3166-2 subdivision code
+        name:
+          type: string
+          description: subdivision name
+  responses:
     ErrorJsonResponse:
       description: an error response in JSON format
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorJsonResponse'
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'

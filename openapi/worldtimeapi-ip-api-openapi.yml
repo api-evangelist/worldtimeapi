@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: World Time Geo Ip API
+  title: World Time Ip API
   version: '2025-10-01'
   description: API to get the current local time details for a given timezone or IP address
 servers:
@@ -10,7 +10,7 @@ tags:
 paths:
   /ip:
     get:
-      summary: 'request the current time based on the ip of the request. note: this is a "best guess" obtained from open-source data.'
+      summary: request the current time based on the ip of the request.
       responses:
         '200':
           description: the current time for the timezone determined from client IP in JSON format
@@ -38,9 +38,11 @@ paths:
           $ref: '#/components/responses/ErrorJsonResponse'
       tags:
       - Ip
+      operationId: getIp
+      x-operation-id-source: derived
   /ip/{ip}:
     get:
-      summary: 'request the current time based on a specific IPv4 or IPv6 address. note: this is a "best guess" obtained from open-source data.'
+      summary: request the current time based on a specific IPv4 or IPv6 address.
       parameters:
       - name: ip
         in: path
@@ -82,9 +84,11 @@ paths:
           $ref: '#/components/responses/ErrorJsonResponse'
       tags:
       - Ip
+      operationId: getIpByIp
+      x-operation-id-source: derived
   /ip/{ip}.txt:
     get:
-      summary: 'request the current time based on a specific IPv4 or IPv6 address. note: this is a "best guess" obtained from open-source data.'
+      summary: request the current time based on a specific IPv4 or IPv6 address.
       parameters:
       - name: ip
         in: path
@@ -141,8 +145,20 @@ paths:
           $ref: '#/components/responses/ErrorTextResponse'
       tags:
       - Ip
+      operationId: getIp{ip}Txt
+      x-operation-id-source: derived
 components:
   schemas:
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
+    ErrorJsonResponse:
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: details about the error encountered
     ErrorTextResponse:
       type: string
       description: details about the error encountered in plain text
@@ -180,15 +196,17 @@ components:
           type: boolean
           description: flag indicating whether the local time is in daylight savings
         dst_from:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: 'an ISO8601-valid string representing the datetime of a DST transition. When DST is active (dst=true): shows when the current DST period started. When DST is NOT active (dst=false): shows when the next DST period will begin (future date). Returns null if the timezone does not observe DST.'
         dst_offset:
           type: integer
           description: the difference in seconds between the current local time and daylight saving time for the location
         dst_until:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: 'an ISO8601-valid string representing the datetime of a DST transition. When DST is active (dst=true): shows when the current DST period will end (future date). When DST is NOT active (dst=false): shows when the last DST period ended (past date). Returns null if the timezone does not observe DST.'
         raw_offset:
           type: integer
@@ -208,26 +226,16 @@ components:
         week_number:
           type: integer
           description: the current week number
-    ErrorJsonResponse:
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: details about the error encountered
-    DateTimeTextResponse:
-      type: string
-      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
   responses:
-    ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
     ErrorJsonResponse:
       description: an error response in JSON format
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorJsonResponse'
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'

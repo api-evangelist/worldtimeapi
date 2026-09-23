@@ -1,12 +1,7 @@
 {
   "provider": "worldtimeapi",
   "sources": [
-    "worldtimeapi-geo-api-openapi.yml",
-    "worldtimeapi-geo-txt-api-openapi.yml",
-    "worldtimeapi-ip-api-openapi.yml",
-    "worldtimeapi-ip-txt-api-openapi.yml",
-    "worldtimeapi-timezone-api-openapi.yml",
-    "worldtimeapi-timezone-txt-api-openapi.yml"
+    "_original/openapi.yaml"
   ],
   "outputs": [
     "worldtimeapi-geo-api-openapi.yml",
@@ -19,6 +14,39 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yaml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "openapi.yaml: tagged paths GET /timezone -> Timezone",
+    "openapi.yaml: tagged paths GET /timezone.txt -> Timezone.txt",
+    "openapi.yaml: tagged paths GET /timezone/{area} -> Timezone",
+    "openapi.yaml: tagged paths GET /timezone/{area}.txt -> Timezone",
+    "openapi.yaml: tagged paths GET /timezone/{area}/{location} -> Timezone",
+    "openapi.yaml: tagged paths GET /timezone/{area}/{location}.txt -> Timezone",
+    "openapi.yaml: tagged paths GET /timezone/{area}/{location}/{region} -> Timezone",
+    "openapi.yaml: tagged paths GET /timezone/{area}/{location}/{region}.txt -> Timezone",
+    "openapi.yaml: tagged paths GET /ip -> Ip",
+    "openapi.yaml: tagged paths GET /ip.txt -> Ip.txt",
+    "openapi.yaml: tagged paths GET /ip/{ip} -> Ip",
+    "openapi.yaml: tagged paths GET /ip/{ip}.txt -> Ip",
+    "openapi.yaml: tagged paths GET /geo -> Geo",
+    "openapi.yaml: tagged paths GET /geo.txt -> Geo.txt",
+    "openapi.yaml: tagged paths GET /geo/{ip} -> Geo",
+    "openapi.yaml: tagged paths GET /geo/{ip}.txt -> Geo",
+    "openapi.yaml: declared missing tag: Geo",
+    "openapi.yaml: declared missing tag: Geo.txt",
+    "openapi.yaml: declared missing tag: Ip",
+    "openapi.yaml: declared missing tag: Ip.txt",
+    "openapi.yaml: declared missing tag: Timezone",
+    "openapi.yaml: declared missing tag: Timezone.txt",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "worldtimeapi-geo-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "worldtimeapi-geo-txt-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "worldtimeapi-ip-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "worldtimeapi-ip-txt-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "worldtimeapi-timezone-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "worldtimeapi-timezone-txt-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

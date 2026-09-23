@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: World Time Geo Geo.txt API
+  title: World Time Geo.txt API
   version: '2025-10-01'
   description: API to get the current local time details for a given timezone or IP address
 servers:
@@ -10,7 +10,7 @@ tags:
 paths:
   /geo.txt:
     get:
-      summary: 'request geolocation data based on the ip of the request. note: this is a "best guess" obtained from open-source data.'
+      summary: request geolocation data based on the ip of the request.
       responses:
         '200':
           description: geolocation data for the client IP in plain text
@@ -55,14 +55,9 @@ paths:
           $ref: '#/components/responses/ErrorTextResponse'
       tags:
       - Geo.txt
+      operationId: getGeoTxt
+      x-operation-id-source: derived
 components:
-  schemas:
-    ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
-    GeoTextResponse:
-      type: string
-      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
   responses:
     ErrorTextResponse:
       description: an error response in plain text
@@ -70,3 +65,10 @@ components:
         text/plain:
           schema:
             $ref: '#/components/schemas/ErrorTextResponse'
+  schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
+    GeoTextResponse:
+      type: string
+      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'

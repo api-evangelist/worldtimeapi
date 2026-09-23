@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: World Time Geo Ip.txt API
+  title: World Time Ip.txt API
   version: '2025-10-01'
   description: API to get the current local time details for a given timezone or IP address
 servers:
@@ -10,7 +10,7 @@ tags:
 paths:
   /ip.txt:
     get:
-      summary: 'request the current time based on the ip of the request. note: this is a "best guess" obtained from open-source data.'
+      summary: request the current time based on the ip of the request.
       responses:
         '200':
           description: the current time for the timezone determined from client IP in plain text
@@ -53,14 +53,9 @@ paths:
           $ref: '#/components/responses/ErrorTextResponse'
       tags:
       - Ip.txt
+      operationId: getIpTxt
+      x-operation-id-source: derived
 components:
-  schemas:
-    ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
-    DateTimeTextResponse:
-      type: string
-      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
   responses:
     ErrorTextResponse:
       description: an error response in plain text
@@ -68,3 +63,10 @@ components:
         text/plain:
           schema:
             $ref: '#/components/schemas/ErrorTextResponse'
+  schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'

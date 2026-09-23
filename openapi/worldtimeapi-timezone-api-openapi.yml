@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: World Time Geo Timezone API
+  title: World Time Timezone API
   version: '2025-10-01'
   description: API to get the current local time details for a given timezone or IP address
 servers:
@@ -10,15 +10,17 @@ tags:
 paths:
   /timezone:
     get:
-      summary: a listing of all timezones.
+      summary: a listing of all timezones
       responses:
         default:
           $ref: '#/components/responses/SuccessfulListJsonResponse'
       tags:
       - Timezone
+      operationId: getTimezone
+      x-operation-id-source: derived
   /timezone/{area}:
     get:
-      summary: a listing of all timezones available for that area.
+      summary: a listing of all timezones available for that area
       parameters:
       - name: area
         in: path
@@ -43,9 +45,11 @@ paths:
           $ref: '#/components/responses/ErrorJsonResponse'
       tags:
       - Timezone
+      operationId: getTimezoneByArea
+      x-operation-id-source: derived
   /timezone/{area}.txt:
     get:
-      summary: a listing of all timezones available for that area.
+      summary: a listing of all timezones available for that area
       parameters:
       - name: area
         in: path
@@ -75,9 +79,11 @@ paths:
           $ref: '#/components/responses/ErrorTextResponse'
       tags:
       - Timezone
+      operationId: getTimezone{area}Txt
+      x-operation-id-source: derived
   /timezone/{area}/{location}:
     get:
-      summary: request the current time for a timezone.
+      summary: request the current time for a timezone
       parameters:
       - name: area
         in: path
@@ -118,9 +124,11 @@ paths:
           $ref: '#/components/responses/ErrorJsonResponse'
       tags:
       - Timezone
+      operationId: getTimezoneByAreaByLocation
+      x-operation-id-source: derived
   /timezone/{area}/{location}.txt:
     get:
-      summary: request the current time for a timezone.
+      summary: request the current time for a timezone
       parameters:
       - name: area
         in: path
@@ -176,9 +184,11 @@ paths:
           $ref: '#/components/responses/ErrorTextResponse'
       tags:
       - Timezone
+      operationId: getTimezoneByArea{location}Txt
+      x-operation-id-source: derived
   /timezone/{area}/{location}/{region}:
     get:
-      summary: request the current time for a timezone.
+      summary: request the current time for a timezone
       parameters:
       - name: area
         in: path
@@ -225,9 +235,11 @@ paths:
           $ref: '#/components/responses/ErrorJsonResponse'
       tags:
       - Timezone
+      operationId: getTimezoneByAreaByLocationByRegion
+      x-operation-id-source: derived
   /timezone/{area}/{location}/{region}.txt:
     get:
-      summary: request the current time for a timezone.
+      summary: request the current time for a timezone
       parameters:
       - name: area
         in: path
@@ -289,8 +301,20 @@ paths:
           $ref: '#/components/responses/ErrorTextResponse'
       tags:
       - Timezone
+      operationId: getTimezoneByAreaByLocation{region}Txt
+      x-operation-id-source: derived
 components:
   schemas:
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
+    ErrorJsonResponse:
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: details about the error encountered
     ListTextResponse:
       type: string
       description: a list of available timezones, one per line
@@ -331,15 +355,17 @@ components:
           type: boolean
           description: flag indicating whether the local time is in daylight savings
         dst_from:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: 'an ISO8601-valid string representing the datetime of a DST transition. When DST is active (dst=true): shows when the current DST period started. When DST is NOT active (dst=false): shows when the next DST period will begin (future date). Returns null if the timezone does not observe DST.'
         dst_offset:
           type: integer
           description: the difference in seconds between the current local time and daylight saving time for the location
         dst_until:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: 'an ISO8601-valid string representing the datetime of a DST transition. When DST is active (dst=true): shows when the current DST period will end (future date). When DST is NOT active (dst=false): shows when the last DST period ended (past date). Returns null if the timezone does not observe DST.'
         raw_offset:
           type: integer
@@ -359,28 +385,12 @@ components:
         week_number:
           type: integer
           description: the current week number
-    ErrorJsonResponse:
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: details about the error encountered
     ListJsonResponse:
       type: array
       description: a list of available timezones
       items:
         type: string
-    DateTimeTextResponse:
-      type: string
-      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
   responses:
-    ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
     SuccessfulListJsonResponse:
       description: the list of available timezones in JSON format
       content:
@@ -401,3 +411,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorJsonResponse'
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'
