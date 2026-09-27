@@ -56,13 +56,6 @@ paths:
       operationId: getIpTxt
       x-operation-id-source: derived
 components:
-  responses:
-    ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
   schemas:
     ErrorTextResponse:
       type: string
@@ -70,3 +63,10 @@ components:
     DateTimeTextResponse:
       type: string
       description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
+  responses:
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'

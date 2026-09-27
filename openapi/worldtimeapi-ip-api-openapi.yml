@@ -149,19 +149,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DateTimeTextResponse:
-      type: string
-      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
-    ErrorJsonResponse:
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: details about the error encountered
     ErrorTextResponse:
       type: string
       description: details about the error encountered in plain text
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
     DateTimeJsonResponse:
       required:
       - abbreviation
@@ -226,6 +219,13 @@ components:
         week_number:
           type: integer
           description: the current week number
+    ErrorJsonResponse:
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: details about the error encountered
   responses:
     ErrorJsonResponse:
       description: an error response in JSON format

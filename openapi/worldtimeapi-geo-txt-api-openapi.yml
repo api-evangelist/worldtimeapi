@@ -58,6 +58,13 @@ paths:
       operationId: getGeoTxt
       x-operation-id-source: derived
 components:
+  schemas:
+    GeoTextResponse:
+      type: string
+      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
   responses:
     ErrorTextResponse:
       description: an error response in plain text
@@ -65,10 +72,3 @@ components:
         text/plain:
           schema:
             $ref: '#/components/schemas/ErrorTextResponse'
-  schemas:
-    ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
-    GeoTextResponse:
-      type: string
-      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'

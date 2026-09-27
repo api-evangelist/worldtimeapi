@@ -163,6 +163,9 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
     GeoJsonResponse:
       type: object
       required:
@@ -269,9 +272,6 @@ components:
         is_anycast:
           type: boolean
           description: whether the IP is an anycast address
-    GeoTextResponse:
-      type: string
-      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
     ErrorJsonResponse:
       required:
       - error
@@ -279,9 +279,9 @@ components:
         error:
           type: string
           description: details about the error encountered
-    ErrorTextResponse:
+    GeoTextResponse:
       type: string
-      description: details about the error encountered in plain text
+      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
     GeoSubdivision:
       type: object
       required:
