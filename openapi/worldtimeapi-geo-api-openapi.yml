@@ -162,10 +162,20 @@ paths:
       operationId: getGeo{ip}Txt
       x-operation-id-source: derived
 components:
-  schemas:
+  responses:
+    ErrorJsonResponse:
+      description: an error response in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorJsonResponse'
     ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'
+  schemas:
     GeoJsonResponse:
       type: object
       required:
@@ -272,16 +282,12 @@ components:
         is_anycast:
           type: boolean
           description: whether the IP is an anycast address
-    ErrorJsonResponse:
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: details about the error encountered
     GeoTextResponse:
       type: string
       description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
     GeoSubdivision:
       type: object
       required:
@@ -294,16 +300,10 @@ components:
         name:
           type: string
           description: subdivision name
-  responses:
     ErrorJsonResponse:
-      description: an error response in JSON format
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorJsonResponse'
-    ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: details about the error encountered

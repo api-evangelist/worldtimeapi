@@ -304,7 +304,42 @@ paths:
       operationId: getTimezoneByAreaByLocation{region}Txt
       x-operation-id-source: derived
 components:
+  responses:
+    ErrorJsonResponse:
+      description: an error response in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorJsonResponse'
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'
+    SuccessfulListJsonResponse:
+      description: the list of available timezones in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ListJsonResponse'
+          example:
+          - Africa/Abidjan
+          - Africa/Accra
+          - Africa/Addis_Ababa
+          - Africa/Algiers
+          - Africa/Asmara
+          - Africa/Asmera
+          - Africa/Bamako
   schemas:
+    ListJsonResponse:
+      type: array
+      description: a list of available timezones
+      items:
+        type: string
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
     ErrorTextResponse:
       type: string
       description: details about the error encountered in plain text
@@ -375,9 +410,6 @@ components:
         week_number:
           type: integer
           description: the current week number
-    DateTimeTextResponse:
-      type: string
-      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
     ErrorJsonResponse:
       required:
       - error
@@ -385,35 +417,3 @@ components:
         error:
           type: string
           description: details about the error encountered
-    ListJsonResponse:
-      type: array
-      description: a list of available timezones
-      items:
-        type: string
-  responses:
-    SuccessfulListJsonResponse:
-      description: the list of available timezones in JSON format
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ListJsonResponse'
-          example:
-          - Africa/Abidjan
-          - Africa/Accra
-          - Africa/Addis_Ababa
-          - Africa/Algiers
-          - Africa/Asmara
-          - Africa/Asmera
-          - Africa/Bamako
-    ErrorJsonResponse:
-      description: an error response in JSON format
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorJsonResponse'
-    ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
