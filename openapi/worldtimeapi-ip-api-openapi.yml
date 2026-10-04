@@ -162,12 +162,6 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorTextResponse'
   schemas:
-    DateTimeTextResponse:
-      type: string
-      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
-    ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
     DateTimeJsonResponse:
       required:
       - abbreviation
@@ -232,6 +226,12 @@ components:
         week_number:
           type: integer
           description: the current week number
+    DateTimeTextResponse:
+      type: string
+      description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
     ErrorJsonResponse:
       required:
       - error

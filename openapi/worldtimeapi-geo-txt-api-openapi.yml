@@ -66,9 +66,9 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorTextResponse'
   schemas:
-    GeoTextResponse:
-      type: string
-      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
     ErrorTextResponse:
       type: string
       description: details about the error encountered in plain text
+    GeoTextResponse:
+      type: string
+      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'

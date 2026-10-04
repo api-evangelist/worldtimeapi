@@ -176,6 +176,16 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorTextResponse'
   schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
+    ErrorJsonResponse:
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: details about the error encountered
     GeoJsonResponse:
       type: object
       required:
@@ -285,9 +295,6 @@ components:
     GeoTextResponse:
       type: string
       description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
-    ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
     GeoSubdivision:
       type: object
       required:
@@ -300,10 +307,3 @@ components:
         name:
           type: string
           description: subdivision name
-    ErrorJsonResponse:
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: details about the error encountered
