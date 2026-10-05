@@ -1,0 +1,12 @@
+{
+ "url": "https://public.timeapi.world/openapi.yaml",
+ "requested_url": "https://public.timeapi.world/openapi.yaml",
+ "status": 200,
+ "content_type": "text/yaml",
+ "bytes": 34812,
+ "sha256": "8fd3d0d2dff5068d1ddf86f4cccef9d8287f2e5318cde3dfb429504c00b9fbbe",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
