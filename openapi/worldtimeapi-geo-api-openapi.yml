@@ -162,23 +162,25 @@ paths:
       operationId: getGeo{ip}Txt
       x-operation-id-source: derived
 components:
-  responses:
-    ErrorJsonResponse:
-      description: an error response in JSON format
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorJsonResponse'
-    ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
   schemas:
+    GeoSubdivision:
+      type: object
+      required:
+      - code
+      - name
+      properties:
+        code:
+          type: string
+          description: ISO 3166-2 subdivision code
+        name:
+          type: string
+          description: subdivision name
     ErrorTextResponse:
       type: string
       description: details about the error encountered in plain text
+    GeoTextResponse:
+      type: string
+      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
     ErrorJsonResponse:
       required:
       - error
@@ -292,18 +294,16 @@ components:
         is_anycast:
           type: boolean
           description: whether the IP is an anycast address
-    GeoTextResponse:
-      type: string
-      description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
-    GeoSubdivision:
-      type: object
-      required:
-      - code
-      - name
-      properties:
-        code:
-          type: string
-          description: ISO 3166-2 subdivision code
-        name:
-          type: string
-          description: subdivision name
+  responses:
+    ErrorJsonResponse:
+      description: an error response in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorJsonResponse'
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'

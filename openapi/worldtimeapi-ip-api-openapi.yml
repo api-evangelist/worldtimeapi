@@ -148,20 +148,17 @@ paths:
       operationId: getIp{ip}Txt
       x-operation-id-source: derived
 components:
-  responses:
-    ErrorJsonResponse:
-      description: an error response in JSON format
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorJsonResponse'
-    ErrorTextResponse:
-      description: an error response in plain text
-      content:
-        text/plain:
-          schema:
-            $ref: '#/components/schemas/ErrorTextResponse'
   schemas:
+    ErrorTextResponse:
+      type: string
+      description: details about the error encountered in plain text
+    ErrorJsonResponse:
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: details about the error encountered
     DateTimeJsonResponse:
       required:
       - abbreviation
@@ -229,13 +226,16 @@ components:
     DateTimeTextResponse:
       type: string
       description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
-    ErrorTextResponse:
-      type: string
-      description: details about the error encountered in plain text
+  responses:
     ErrorJsonResponse:
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: details about the error encountered
+      description: an error response in JSON format
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorJsonResponse'
+    ErrorTextResponse:
+      description: an error response in plain text
+      content:
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/ErrorTextResponse'

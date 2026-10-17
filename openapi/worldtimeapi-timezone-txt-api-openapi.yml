@@ -19,6 +19,10 @@ paths:
       operationId: getTimezoneTxt
       x-operation-id-source: derived
 components:
+  schemas:
+    ListTextResponse:
+      type: string
+      description: a list of available timezones, one per line
   responses:
     SuccessfulListTextResponse:
       description: the list of available timezones in plain text
@@ -41,7 +45,3 @@ components:
             Africa/Bamako
 
             '
-  schemas:
-    ListTextResponse:
-      type: string
-      description: a list of available timezones, one per line
