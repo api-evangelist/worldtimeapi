@@ -417,3 +417,9 @@ components:
         text/plain:
           schema:
             $ref: '#/components/schemas/ErrorTextResponse'
+x-provenance:
+  method: harvested
+  publisher: World Time API
+  source: https://public.timeapi.world/openapi.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

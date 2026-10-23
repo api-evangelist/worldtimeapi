@@ -72,3 +72,9 @@ components:
     GeoTextResponse:
       type: string
       description: 'geolocation details, as per the GeoJsonResponse response, in the format `key: value`, one item per line'
+x-provenance:
+  method: harvested
+  publisher: World Time API
+  source: https://public.timeapi.world/openapi.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

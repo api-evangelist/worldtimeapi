@@ -70,3 +70,9 @@ components:
     DateTimeTextResponse:
       type: string
       description: 'time zone details, as per the DateTimeJsonResponse response, in the format `key: value`, one item per line'
+x-provenance:
+  method: harvested
+  publisher: World Time API
+  source: https://public.timeapi.world/openapi.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
