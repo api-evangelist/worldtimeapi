@@ -64,50 +64,154 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-APIs.json profile for World Time API — a free REST API providing current time, timezone information, UTC offset, DST status, and Unix epoch time for any timezone or IP address.
+World Time API (timeapi.world) is a free REST API that provides current time, timezone information, UTC offset, DST status, and Unix epoch time for any timezone or IP address. Originally hosted at worldtimeapi.org (now sunset), the service continues as a source-available, drop-in compatible successor built on Cloudflare Workers with p99 latency under 40ms. It supports 537 IANA timezones, IP-to-timezone conversion, and IP geolocation. The API returns JSON or plain-text responses and requires no authentication on the free tier.
 
-The original service (worldtimeapi.org) has been sunset. This profile covers its drop-in compatible successor at [timeapi.world](https://timeapi.world/), which is source-available, built on Cloudflare Workers, and supports 537 IANA timezones with p99 latency under 40ms.
+**Areas:** Time · Timezone · World Time · UTC · DST · Daylight Saving Time · IP Geolocation · Unix Epoch
 
-## Key Endpoints
+## World Time API on APIs.io
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | /api/timezone | List all supported timezones |
-| GET | /api/timezone/{area}/{location} | Current time for a specific timezone |
-| GET | /api/ip | Current time for the calling IP address |
-| GET | /api/ip/{ip} | Current time for a given IPv4/IPv6 address |
-| GET | /api/geo | Geolocation for the calling IP |
-| GET | /api/geo/{ip} | Geolocation for a given IP address |
+Everything profiled for World Time API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/worldtimeapi/](https://apis.io/providers/worldtimeapi/)** — or go straight to one of the APIs or properties below.
 
-## Response Fields (DateTime)
+### APIs (6)
 
-- `datetime` — ISO 8601 current date and time
-- `timezone` — IANA timezone identifier (e.g., `America/New_York`)
-- `utc_offset` — UTC offset in ±HH:MM format
-- `unixtime` — Seconds since Unix epoch
-- `dst` — Boolean DST active status
-- `dst_from` / `dst_until` — DST boundary timestamps
-- `day_of_week`, `day_of_year`, `week_number` — Calendar info
-- `client_ip` — Requesting client IP address
+- [World Time API Geo API](https://apis.io/apis/worldtimeapi/worldtimeapi-geo-api/) — The Geo API from World Time API — 3 operation(s) for geo.
+- [World Time API Geo.txt API](https://apis.io/apis/worldtimeapi/worldtimeapi-geo-txt-api/) — The Geo.txt API from World Time API — 1 operation(s) for geo.txt.
+- [World Time API Ip API](https://apis.io/apis/worldtimeapi/worldtimeapi-ip-api/) — The Ip API from World Time API — 3 operation(s) for ip.
+- [World Time API Ip.txt API](https://apis.io/apis/worldtimeapi/worldtimeapi-ip-txt-api/) — The Ip.txt API from World Time API — 1 operation(s) for ip.txt.
+- [World Time API Timezone API](https://apis.io/apis/worldtimeapi/worldtimeapi-timezone-api/) — The Timezone API from World Time API — 7 operation(s) for timezone.
+- [World Time API Timezone.txt API](https://apis.io/apis/worldtimeapi/worldtimeapi-timezone-txt-api/) — The Timezone.txt API from World Time API — 1 operation(s) for timezone.txt.
 
-## Plans
+### Published properties
 
-| Plan | Price | Requests/month | Overage |
-|------|-------|---------------|---------|
-| Free | $0 | 20,000 | None (rejected) |
-| Starter | $5 | 50,000 | $0.0003/req |
-| Standard | $10 | 100,000 | $0.0002/req |
-| Pro | $20 | 200,000 | $0.0001/req |
-| Enterprise | Custom | 1M+ | Custom |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Links
+#### Agentic access (1)
 
-- Website: https://timeapi.world/
-- Documentation: https://timeapi.world/
-- Pricing: https://timeapi.world/pricing
-- FAQ: https://timeapi.world/faq
-- GitHub: https://github.com/sleeyax/world-time-api
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Maintainer
+- [Worldtimeapi Agentic Access](https://apis.io/agentic-access/worldtimeapi/worldtimeapi-agentic-access/)
 
-Kin Lane — kin@apievangelist.com
+#### JSON Schema (2)
+
+The data models the API reads and writes.
+
+- [DateTimeJsonResponse](https://apis.io/schemas/worldtimeapi/datetime-response/)
+- [GeoJsonResponse](https://apis.io/schemas/worldtimeapi/geo-response/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Worldtimeapi Context](https://apis.io/jsonld/worldtimeapi/worldtimeapi-context/)
+
+#### Examples (4)
+
+Example requests and responses.
+
+- [Geo Lookup](https://apis.io/examples/worldtimeapi/geo-lookup/)
+- [Ip Lookup](https://apis.io/examples/worldtimeapi/ip-lookup/)
+- [Three Part Timezone Lookup](https://apis.io/examples/worldtimeapi/three-part-timezone-lookup/)
+- [Timezone Lookup](https://apis.io/examples/worldtimeapi/timezone-lookup/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [World Time Geo API](https://apis.io/collections/worldtimeapi/open-worldtimeapi-geo-api/)
+- [World Time Geo Geo.txt API](https://apis.io/collections/worldtimeapi/open-worldtimeapi-geo-txt-api/)
+- [World Time Geo Ip API](https://apis.io/collections/worldtimeapi/open-worldtimeapi-ip-api/)
+- [World Time Geo Ip.txt API](https://apis.io/collections/worldtimeapi/open-worldtimeapi-ip-txt-api/)
+- [World Time Geo Timezone API](https://apis.io/collections/worldtimeapi/open-worldtimeapi-timezone-api/)
+- [World Time Geo Timezone.txt API](https://apis.io/collections/worldtimeapi/open-worldtimeapi-timezone-txt-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [World Time API — jsonschema rules](https://apis.io/rules/worldtimeapi/worldtimeapi-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Worldtimeapi Domain Security](https://apis.io/security/worldtimeapi/worldtimeapi-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Worldtimeapi Plans Pricing](https://apis.io/plans/worldtimeapi/worldtimeapi-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Worldtimeapi Rate Limits](https://apis.io/rate-limits/worldtimeapi/worldtimeapi-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Worldtimeapi Finops](https://apis.io/finops/worldtimeapi/worldtimeapi-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://timeapi.world/)
+- [Documentation](https://timeapi.world/)
+- [Pricing](https://timeapi.world/pricing)
+- [Blog](https://dev.to/sleeyax/i-built-a-better-world-time-api-14mh)
+
+## API Evangelist rating
+
+**Kin Score 26.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 44.4 |
+| Contract governance | 9.8 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 18.4 |
+
+**Agent readiness 23.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/worldtimeapi/](https://apis.io/providers/worldtimeapi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for World Time API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/worldtimeapi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
